@@ -1,10 +1,16 @@
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Platypi', serif;
   background: #f0f0f0;
   text-align: center;
   padding: 40px;
+  color: beige;
 }
 
 h1 {
-  font-size: 3rem;
+  font-family: 'Rakkas', serif;
+  background: #f0f0f0;
+  text-align: center;
+  padding: 40px;
+  color:darkmagenta;
+  size: 3rem;
 }
