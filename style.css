@@ -18,10 +18,12 @@ h1 {
   background-color: rgb(118, 44, 118);
   color: rgb(249, 136, 136);
   font-size: 2rem;
-  border-radius: 12px 0 0 12px
+  border-radius: 12px 0 0 12px;
+  transition: transform 0.2s ease, background 0.2s ease;
 }
 
 .button:hover {
   background-color: #b100b1;
   transform: translateY(-2px);
+  transform: scale(1.5); /* grow 20% */
 }
