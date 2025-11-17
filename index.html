@@ -9,7 +9,8 @@
 </head>
 <body>
   <h1>RACE TO ASI</h1>
-  <p>This is the homepage.</p>
+  <p>This is the homepage. </p>
+  <div id="cellA1"></div>
   <a href="eliza.html" class="button">ELIZA</a>
   <p></p>
   <p></p>
@@ -40,3 +41,22 @@
   <a href="rogue.html" class="button">ROGUE</a>
 </body>
 </html>
+
+<script>
+  const sheetId = "1AbCDefGHIjkLMNOPQRSTuVWxyz12345";   // your sheet ID
+  const apiKey = "AIzaSy........";                      // your API key
+  const range = "Sheet1!A1";                            // the cell to fetch
+
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+
+  fetch(url)
+    .then(response => response.json())
+    .then(data => {
+      const value = data.values ? data.values[0][0] : "(no data)";
+      document.getElementById("cellA1").textContent = value;
+    })
+    .catch(err => {
+      console.error("Error:", err);
+      document.getElementById("cellA1").textContent = "Error loading data, please reach out.";
+    });
+</script>
