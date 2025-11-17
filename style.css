@@ -25,5 +25,5 @@ h1 {
 .button:hover {
   background-color: #b100b1;
   transform: translateY(-2px);
-  transform: scale(1.5); /* grow 20% */
+  transform: scale(1.2); /* grow 20% */
 }
