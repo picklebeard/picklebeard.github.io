@@ -1,6 +1,6 @@
 body {
   font-family: 'Platypi', serif;
-  background: darkslategray;
+  background: black;
   text-align: center;
   padding: 40px;
   color: beige;
@@ -8,6 +8,6 @@ body {
 
 h1 {
   font-family: 'Rakkas', serif;
-  color:darkmagenta;
+  color:paleturquoise;
   font-size: 3rem;
 }
