@@ -16,9 +16,9 @@ h1 {
   display: inline-block;
   padding: 12px 24px;
   background-color: rgb(118, 44, 118);
-  color: rgb(249, 136, 136);
+  color: rgb(255, 216, 216);
   font-size: 2rem;
-  border-radius: 12px 0 12px 0;
+  border-radius: 12px 0px 12px 0px;
   transition: transform 0.1s ease, background 0.2s ease;
 }
 
