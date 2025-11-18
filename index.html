@@ -15,7 +15,6 @@
   <h1>Race to ASI</h1>
   <p>[enter company credentials] </p>
   <br>
-  <br>
   <a href="rogue.html" class="button" style="background-color: #b51010;">ROGUE</a>
   <br>
   <br>
@@ -54,11 +53,32 @@
 </body>
 </html>
 
+<div id="cellE2"></div>
+
 <script>
-  fetch("https://docs.google.com/spreadsheets/d/1iAi73leePAUecgtVYqUneI64RleFUV68N0gRVPJ5kus/export?format=csv&gid=539268331")
-  .then(r => r.text())
+  // URL must be publicly accessible (or "Published to web")
+  const url = "https://docs.google.com/spreadsheets/d/1iAi73leePAUecgtVYqUneI64RleFUV68N0gRVPJ5kus/export?format=csv&gid=539268331";
+
+  fetch(url)
+  .then(res => {
+    if (!res.ok) throw new Error("Fetch failed: " + res.status);
+    return res.text();
+  })
   .then(csv => {
-    const rows = csv.split("\n").map(r => r.split(","));
-    document.getElementById("cellA1").textContent = rows[0][0];
+    // split rows by newline, remove empty lines
+    const rows = csv.trim().split("\n").map(r => r.split(",").map(Number));
+
+    console.log(rows); // check your 2D array of numbers
+
+    // example: get A1
+    document.getElementById("cellE2").textContent = rows[0][0];
+
+    // example: get B2
+    // document.getElementById("cellB2").textContent = rows[1][1];
+  })
+  .catch(err => {
+    console.error(err);
+    document.getElementById("cellA1").textContent = "Error: " + err.message;
   });
+
 </script>
