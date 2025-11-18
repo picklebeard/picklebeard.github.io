@@ -8,8 +8,11 @@
   <title>elizabio</title>
 </head>
 <body>
-  
-  <div class="pie"
+
+  <h1>ELIZA</h1>
+  <h1></h1>Biological/Natural Ending</h1>
+
+<div class="pie"
      role="img"
      aria-label="Chart: 5% #b51010, 15% #ec3ca2, 10% #5794e3, 12% #5544b1, 8% #74415f, 14% #ec3ca2, 7% #b6d468, 3% #bfbfbf, 16% #fc8210, 10% #a840ed"
      style="
@@ -23,11 +26,9 @@
        --s1:5%;  --s2:20%; --s3:30%; --s4:42%; --s5:50%;
        --s6:64%; --s7:71%; --s8:74%; --s9:90%; --s10:100%;
      ">
-  <span class="pie__center">My Pie</span>
+  <span class="pie__center">  <div id="cellE2"></div>
+</span>
 </div>
-
-  <h1>ELIZA</h1>
-  <h1></h1>Biological/Natural Ending</h1>
 
   <p>This is an ending. Add some stats.</p>
     <p></p>
@@ -35,3 +36,12 @@
   <a href="index.html" class="button">HOME</a>
 </body>
 </html>
+
+<script>
+  fetch("https://docs.google.com/spreadsheets/d/1iAi73leePAUecgtVYqUneI64RleFUV68N0gRVPJ5kus/export?format=csv&gid=723254694")
+  .then(r => r.text())
+  .then(csv => {
+    const rows = csv.split("\n").map(r => r.split(","));
+    document.getElementById("cellE2").textContent = rows[0][0];
+  });
+</script>
