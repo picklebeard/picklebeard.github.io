@@ -45,34 +45,5 @@
   <a href="serapis.html" class="button" style="background-color: #a840ed;">SERAPIS</a>
   <br>
   <br>
-  
-
-  <div id="cellE3"></div>
-
-
 </body>
 </html>
-
-<script>
-  // URL must be publicly accessible (or "Published to web")
-  const url = "https://docs.google.com/spreadsheets/d/1iAi73leePAUecgtVYqUneI64RleFUV68N0gRVPJ5kus/export?format=csv&gid=539268331";
-
-  fetch(url)
-  .then(res => {
-    if (!res.ok) throw new Error("Fetch failed: " + res.status);
-    return res.text();
-  })
-  .then(csv => {
-    // split rows by newline, remove empty lines
-    const rows = csv.trim().split("\n").map(r => r.split(",").map(Number));
-
-    console.log(rows); // check your 2D array of numbers
-
-    // example: get E3
-    document.getElementById("cellE3").textContent = rows[2][4];
-
-    // example: get B2
-    // document.getElementById("cellB2").textContent = rows[1][1];
-  })
-
-</script>
