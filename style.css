@@ -14,7 +14,8 @@ h1 {
 }
 
 .swipe {
-  position: fixed;
+  position:fixed;
+  z-index:2;
   top: -50vh; 
   left: 0;
   width: 100%;
@@ -27,11 +28,11 @@ h1 {
     rgba(0,0,0,1) 100%
   );  
   transform: translateY(0);
-  animation: slideDown 1.5s ease forwards;
+  animation: slideDown 1s ease forwards;
 }
 
 @keyframes slideDown {
-  to { transform: translateY(100vh); } /* move completely down off-screen */
+  to { transform: translateY(150vh); } /* move completely down off-screen */
 }
 
 /* reduced motion fallback */
