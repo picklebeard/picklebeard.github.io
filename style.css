@@ -43,6 +43,6 @@ h1 {
 }
 
 .button:hover {
-  background-color: #b100b1;
-  transform: scale(1.2); /* grow 20% */
+  padding: 24px 48px;
+  /*transform: scale(1.2); grow 20% */
 }
