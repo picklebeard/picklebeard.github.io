@@ -9,51 +9,38 @@
 </head>
 
 <style>
-  :root{
-    --mask: #000000;           /* color of the sweeping rectangle (match page bg) */
-    --dur: 500ms;             /* how long the sweep takes */
-    --ease: cubic-bezier(.2,.9,.2,1);
+  /**body {
+    margin: 0;
+    height: 100vh;
+    background: #000000;
+    overflow: hidden;
+  }**/
+
+  .swipe {
+    position: fixed;       /* cover the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;          /* full screen */
+    background: #000000;   /* rectangle color */
+    transform: translateY(-100%); /* start off-screen above */
+    animation: slideDown 1s ease forwards; /* slide down */
   }
 
-  /* page demo styling */
-  body { background: var(--mask); font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial; padding: 28px; color: #111; }
-
-  /* wrapper you put around any element to reveal */
-  .reveal {
-    position: relative;
-    display: inline-block;   /* use block if you want full-width */
-    overflow: hidden;        /* keeps the mask inside the element */
+  @keyframes slideDown {
+    to { transform: translateY(100%); } /* move completely down off-screen */
   }
 
-  .reveal .content {
-    position: relative;
-    z-index: 0;              /* content sits beneath the mask */
-  }
-
-  /* mask that sits on top and slides down (then off) */
-  .reveal::before {
-    content: "";
-    position: absolute;
-    inset: 0;                /* cover the whole element */
-    background: var(--mask);
-    z-index: 1;
-    transform: translateY(0%);
-    animation: swipe var(--dur) var(--ease) forwards;
-    animation-delay: var(--delay, 0s); /* set per-element via inline style if you want stagger */
-    pointer-events: none;    /* don't block clicks */
-  }
-
-  @keyframes swipe {
-    to { transform: translateY(100%); } /* move mask down and off the element */
-  }
-
-  /* respect users who prefer reduced motion */
+  /* reduced motion fallback */
   @media (prefers-reduced-motion: reduce) {
-    .reveal::before { display: none; } /* show content immediately */
+    .swipe { display: none; }
   }
 </style>
 
 <body>
+
+  <div class="swipe"></div>
+
   <h1>RACE TO ASI</h1>
   <p>This is the homepage. </p>
   <div id="cellA1"></div>
