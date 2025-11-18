@@ -13,12 +13,16 @@
 
   <a href="elizabio.html" id="elizabiobutton" class="button">NATURAL/BIOLOGICAL</a>
   <p id="status"></p>
-
     <p></p>
-  <a href="elizatech.html" class="button">TECHNOLOGICAL</a>
+    
+  <a href="elizatech.html" id="elizatechbutton" class="button">TECHNOLOGICAL</a>
+  <p id="status"></p>
     <p></p>
-  <a href="elizapol.html" class="button">SOCIOPOLITICAL</a>
+    
+    <a href="elizapol.html" id="elizapolbutton" class="button">SOCIOPOLITICAL</a>
+  <p id="status"></p>
     <p></p>
+    
     <p></p>
     <p></p>
   <a href="index.html" class="button">HOME</a>
@@ -36,7 +40,57 @@ document.getElementById("elizabiobutton").addEventListener("click", function(eve
     const url = `https://docs.google.com/forms/d/${formID}/formResponse`;
 
     const formData = new FormData();
-    formData.append(entryID, "1");
+    formData.append(entryID, "elizabio");
+
+    fetch(url, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+    });
+
+    // Give the submission time to fire
+    setTimeout(() => {
+        window.location.href = this.href;
+    }, 400);
+});
+</script>
+
+<script>
+document.getElementById("elizatechbutton").addEventListener("click", function(event) {
+
+    event.preventDefault(); // stop the instant navigation
+
+    const formID = "1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8";
+    const entryID = "entry.1648822927";
+    const url = `https://docs.google.com/forms/d/${formID}/formResponse`;
+
+    const formData = new FormData();
+    formData.append(entryID, "elizatech");
+
+    fetch(url, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+    });
+
+    // Give the submission time to fire
+    setTimeout(() => {
+        window.location.href = this.href;
+    }, 400);
+});
+</script>
+
+<script>
+document.getElementById("elizapolbutton").addEventListener("click", function(event) {
+
+    event.preventDefault(); // stop the instant navigation
+
+    const formID = "1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8";
+    const entryID = "entry.1648822927";
+    const url = `https://docs.google.com/forms/d/${formID}/formResponse`;
+
+    const formData = new FormData();
+    formData.append(entryID, "elizapol");
 
     fetch(url, {
         method: "POST",
