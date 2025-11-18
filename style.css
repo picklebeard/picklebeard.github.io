@@ -43,6 +43,6 @@ h1 {
 }
 
 .button:hover {
-  margin-top: calc(-16px);
+  margin-top: calc(-8px);
   transform: scale(1.25);
 }
