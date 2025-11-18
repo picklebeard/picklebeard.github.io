@@ -8,27 +8,6 @@
   <title>eliza</title>
 </head>
 
-<style>
-  .swipe {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 15%, rgba(0,0,0,1) 100%);
-    animation: slideDown 2s ease forwards; /* slide down */
-  }
-
-  @keyframes slideDown {
-    to { transform: translateY(100%); } /* move completely down off-screen */
-  }
-
-  /* reduced motion fallback */
-  @media (prefers-reduced-motion: reduce) {
-    .swipe { display: none; }
-  }
-</style>
-
 <body>
 
   <div class="swipe"></div>
@@ -54,8 +33,8 @@
 </body>
 </html>
 
-
 <script>
+    
 document.getElementById("elizabiobutton").addEventListener("click", function(event) {
 
     event.preventDefault(); // stop the instant navigation
@@ -78,9 +57,7 @@ document.getElementById("elizabiobutton").addEventListener("click", function(eve
         window.location.href = this.href;
     }, 400);
 });
-</script>
 
-<script>
 document.getElementById("elizatechbutton").addEventListener("click", function(event) {
 
     event.preventDefault(); // stop the instant navigation
@@ -103,9 +80,7 @@ document.getElementById("elizatechbutton").addEventListener("click", function(ev
         window.location.href = this.href;
     }, 400);
 });
-</script>
 
-<script>
 document.getElementById("elizapolbutton").addEventListener("click", function(event) {
 
     event.preventDefault(); // stop the instant navigation
