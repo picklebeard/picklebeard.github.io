@@ -13,7 +13,7 @@
   <div class="swipe"></div>
 
   <h1>Race to ASI</h1>
-  <p>Enter company credentials. </p>
+  <p>[enter company credentials] </p>
   <p></p>
   <p></p>
   <a href="rogue.html" class="button" style="background-color: #b51010;">ROGUE</a>
@@ -55,7 +55,7 @@
 </html>
 
 <script>
-  fetch("https://docs.google.com/spreadsheets/d/1iAi73leePAUecgtVYqUneI64RleFUV68N0gRVPJ5kus/export?format=csv&gid=723254694")
+  fetch("https://docs.google.com/spreadsheets/d/1iAi73leePAUecgtVYqUneI64RleFUV68N0gRVPJ5kus/export?format=csv&gid=539268331")
   .then(r => r.text())
   .then(csv => {
     const rows = csv.split("\n").map(r => r.split(","));
