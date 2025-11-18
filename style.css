@@ -42,8 +42,3 @@ h1 {
   box-shadow: 10px rgba(255, 255, 255, 0.2);
   transition: transform 0.2s ease, background 0.2s ease;
 }
-
-.button:hover {
-  /**margin-top: -16px;**/
-  transform: scale(1.25);
-}
