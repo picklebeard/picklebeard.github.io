@@ -45,12 +45,17 @@ h1 {
   color: rgb(255, 216, 216);
   font-size: 2rem;
   border-radius: 12px 0px 12px 0px;
+  position: relative;
+
   box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2) inset;
   box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
-  transition: transform 0.2s ease, background 0.2s ease;
+
+  transition: transform 0.18s ease, box-shadow 0.25s ease;
+  will-change: transform;
+  transform-origin: center;
 }
 
 .button:hover {
   transform: scale(1.2);
-  z-index: 2;
+  box-shadow: 0 12px 26px rgba(255, 255, 255, 0.35);
 }
