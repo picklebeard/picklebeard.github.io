@@ -1,8 +1,10 @@
 body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   font-family: 'Platypi', serif;
   background: rgb(36, 38, 47);
   text-align: center;
-  padding: 40px;
   color: beige;
   font-size: 2rem;
 }
@@ -15,7 +17,8 @@ h1 {
 
 .swipe {
   position:fixed;
-  z-index:2;
+  overflow: visible;
+  z-index:100;
   top: -50vh; 
   left: 0;
   width: 100%;
