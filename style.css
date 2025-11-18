@@ -38,7 +38,7 @@ h1 {
   color: rgb(255, 216, 216);
   font-size: 2rem;
   border-radius: 12px 0px 12px 0px;
-  box-shadow: 0 20px 30px rgba(255, 255, 255, 0.1);
+  box-shadow: 10px rgba(255, 255, 255, 0.2) inset;
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
