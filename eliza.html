@@ -10,7 +10,10 @@
 <body>
   <h1>ELIZA</h1>
   <p>Company description.</p>
-  <a href="elizabio.html" class="button">NATURAL/BIOLOGICAL</a>
+
+  <a href="elizabio.html" id="elizabiobutton" class="button">NATURAL/BIOLOGICAL</a>
+  <p id="status"></p>
+
     <p></p>
   <a href="elizatech.html" class="button">TECHNOLOGICAL</a>
     <p></p>
@@ -21,3 +24,29 @@
   <a href="index.html" class="button">HOME</a>
 </body>
 </html>
+
+
+<script>
+document.getElementById("buttonA").addEventListener("click", function(event) {
+
+    event.preventDefault(); // stop the instant navigation
+
+    const formID = "1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8";
+    const entryID = "entry.1648822927";
+    const url = `https://docs.google.com/forms/d/${formID}/formResponse`;
+
+    const formData = new FormData();
+    formData.append(entryID, "elizabiobutton");
+
+    fetch(url, {
+        method: "POST",
+        mode: "no-cors",
+        body: formData
+    });
+
+    // Give the submission time to fire
+    setTimeout(() => {
+        window.location.href = this.href;
+    }, 150);
+});
+</script>
