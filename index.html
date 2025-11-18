@@ -47,7 +47,7 @@
   const apiKey = "AIzaSyDDmf7Z9D4PWYEsiWGiLL_Jywz_RQ6U4Ck";
   const range = "Sheet1!A1";
   
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+  const url = 'https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}';
 
   fetch(url)
     .then(response => response.json())
