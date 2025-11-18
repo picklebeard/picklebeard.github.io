@@ -36,7 +36,7 @@ document.getElementById("elizabiobutton").addEventListener("click", function(eve
     const url = `https://docs.google.com/forms/d/${formID}/formResponse`;
 
     const formData = new FormData();
-    formData.append(entryID, "elizabiobutton");
+    formData.append(entryID, "1");
 
     fetch(url, {
         method: "POST",
@@ -47,6 +47,6 @@ document.getElementById("elizabiobutton").addEventListener("click", function(eve
     // Give the submission time to fire
     setTimeout(() => {
         window.location.href = this.href;
-    }, 150);
+    }, 400);
 });
 </script>
