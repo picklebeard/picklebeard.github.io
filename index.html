@@ -47,7 +47,7 @@
   <br>
   
 
-  <div id="cellE2"></div>
+  <div id="cellE3"></div>
 
 
 </body>
@@ -68,15 +68,11 @@
 
     console.log(rows); // check your 2D array of numbers
 
-    // example: get A1
-    document.getElementById("cellE2").textContent = rows[0][0];
+    // example: get E3
+    document.getElementById("cellE3").textContent = rows[0][0];
 
     // example: get B2
     // document.getElementById("cellB2").textContent = rows[1][1];
   })
-  .catch(err => {
-    console.error(err);
-    document.getElementById("cellA1").textContent = "Error: " + err.message;
-  });
 
 </script>
