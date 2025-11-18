@@ -65,47 +65,26 @@ h1 {
 }
 
 .pie {
-  --size: 160px;         /* diameter */
-  --inner: 50%;          /* inner circle diameter as percent of the whole (for donut) */
-  --bg: transparent;     /* page background if needed */
+  --size: 160px;
+  --inner: 50%;
   display: inline-block;
   width: var(--size);
   height: var(--size);
   border-radius: 50%;
   position: relative;
-  /* Build the conic gradient using slice variables (p# and c#). */
-  background: conic-gradient(
-    #e53935 0% 40%,        /* first slice 0–40% */
-    #43a047 40% 70%,       /* second slice 40–70% */
-    #1e88e5 70% 90%,       /* third slice 70–90% */
-    #fdd835 90% 100%       /* last slice 90–100% */
-  );
-  /* small visual polish */
   box-shadow: 0 1px 2px rgba(0,0,0,0.08) inset;
-  overflow: visible;
-}
 
-.pie::after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: var(--inner);
-  height: var(--inner);
-  border-radius: 50%;
-  background: var(--bg, white); /* center background (page color) */
-  pointer-events: none;
-}
-
-.pie__center {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: calc(var(--size) / 6);
-  font-weight: 600;
-  color: #222;
-  user-select: none;
-  pointer-events: none;
+  /* conic gradient uses cumulative stops (--s1..--s10) and colors (--c1..--c10) */
+  background: conic-gradient(
+    var(--c1, #ccc) 0 var(--s1),
+    var(--c2, transparent) var(--s1) var(--s2),
+    var(--c3, transparent) var(--s2) var(--s3),
+    var(--c4, transparent) var(--s3) var(--s4),
+    var(--c5, transparent) var(--s4) var(--s5),
+    var(--c6, transparent) var(--s5) var(--s6),
+    var(--c7, transparent) var(--s6) var(--s7),
+    var(--c8, transparent) var(--s7) var(--s8),
+    var(--c9, transparent) var(--s8) var(--s9),
+    var(--c10, transparent) var(--s9) var(--s10)
+  );
 }
