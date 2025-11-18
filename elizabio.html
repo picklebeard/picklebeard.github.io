@@ -26,7 +26,7 @@
        --s1:5%;  --s2:20%; --s3:30%; --s4:42%; --s5:50%;
        --s6:64%; --s7:71%; --s8:74%; --s9:90%; --s10:100%;
      ">
-  <span class="pie__center">  <div id="cellE2"></div>
+  <span class="pie__center">  <div id="cellE1"></div>
 </span>
 </div>
 
@@ -45,6 +45,6 @@
   .then(r => r.text())
   .then(csv => {
     const rows = csv.split("\n").map(r => r.split(","));
-    document.getElementById("cellE2").textContent = rows[0][0];
+    document.getElementById("cellE1").textContent = rows[0][0];
   });
 </script>
