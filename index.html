@@ -43,20 +43,10 @@
 </html>
 
 <script>
-  const sheetId = "723254694";
-  const apiKey = "AIzaSyDDmf7Z9D4PWYEsiWGiLL_Jywz_RQ6U4Ck";
-  const range = "public_stats!A1";
-  
-  const url = 'https://sheets.googleapis.com/v4/spreadsheets/723254694/values/public_stats!A1?key=AIzaSyDDmf7Z9D4PWYEsiWGiLL_Jywz_RQ6U4Ck';
-
-  fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      const value = data.values ? data.values[0][0] : "(no data)";
-      document.getElementById("cellA1").textContent = value;
-    })
-    .catch(err => {
-      console.error("Error:", err);
-      document.getElementById("cellA1").textContent = "Error loading data, please reach out.";
-    });
+  fetch("https://docs.google.com/spreadsheets/d/1iAi73leePAUecgtVYqUneI64RleFUV68N0gRVPJ5kus/export?format=csv&gid=723254694")
+  .then(r => r.text())
+  .then(csv => {
+    const rows = csv.split("\n").map(r => r.split(","));
+    document.getElementById("cellA1").textContent = rows[0][0];
+  });
 </script>
