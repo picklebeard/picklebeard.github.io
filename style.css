@@ -43,6 +43,6 @@ h1 {
 }
 
 .button:hover {
-  padding: 24px 48px;
-  /*transform: scale(1.2); grow 20% */
+  transform: scale(1.2);
+  transform: translateY(-120%);
 }
