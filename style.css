@@ -43,7 +43,7 @@ h1 {
 
 .button:hover {
   background-color: #b100b1;
-  transform: translateY(-2px);
+  transform: translateY(-25px);
   transform: scale(1.1); /* grow 20% */
   font-size: 2.5rem;
 }
