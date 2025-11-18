@@ -43,6 +43,6 @@ h1 {
 }
 
 .button:hover {
+  margin-top: calc(-0.5 * 2rem);
   transform: scale(1.2);
-  transform: translateY(-50px);
 }
