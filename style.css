@@ -62,3 +62,51 @@ h1 {
   transform: scale(1.2);
   box-shadow: 0 12px 26px rgba(255, 255, 255, 0.35);
 }
+
+.pie {
+  --size: 160px;         /* diameter */
+  --inner: 50%;          /* inner circle diameter as percent of the whole (for donut) */
+  --bg: transparent;     /* page background if needed */
+  display: inline-block;
+  width: var(--size);
+  height: var(--size);
+  border-radius: 50%;
+  position: relative;
+  /* Build the conic gradient using slice variables (p# and c#). */
+  background:
+    conic-gradient(
+      var(--c1, #ccc) 0 var(--p1, 0%),
+      var(--c2, transparent) var(--p1, 0%) calc(var(--p1, 0%) + var(--p2, 0%)),
+      var(--c3, transparent) calc(var(--p1, 0%) + var(--p2, 0%)) calc(var(--p1, 0%) + var(--p2, 0%) + var(--p3, 0%)),
+      var(--c4, transparent) calc(var(--p1, 0%) + var(--p2, 0%) + var(--p3, 0%)) calc(var(--p1, 0%) + var(--p2, 0%) + var(--p3, 0%) + var(--p4, 0%)),
+      transparent calc(var(--p1, 0%) + var(--p2, 0%) + var(--p3, 0%) + var(--p4, 0%)) 100%
+    );
+  /* small visual polish */
+  box-shadow: 0 1px 2px rgba(0,0,0,0.08) inset;
+  overflow: visible;
+}
+
+.pie::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: var(--inner);
+  height: var(--inner);
+  border-radius: 50%;
+  background: var(--bg, white); /* center background (page color) */
+  pointer-events: none;
+}
+
+.pie__center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: calc(var(--size) / 6);
+  font-weight: 600;
+  color: #222;
+  user-select: none;
+  pointer-events: none;
+}
