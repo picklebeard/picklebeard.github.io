@@ -50,7 +50,6 @@ h1 {
   color: rgb(255, 216, 216);
   border-radius: 24px 0px 24px 0px;
   position: relative;
-
   box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2) inset, 0 8px 24px rgba(255, 255, 255, 0.2);
 
   transition: transform 0.18s ease, box-shadow 0.25s ease;
@@ -66,8 +65,8 @@ h1 {
 .pie {
   font-size: 10rem;
   display: inline-block;
-  width: 35vh;
-  height: 35vh;
+  width: 45vh;
+  height: 45vh;
   border-radius: 50%;
   position: relative;
   box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2), inset 0 10px 20px rgba(255, 255, 255, 0.5);
@@ -85,19 +84,26 @@ h1 {
     var(--c10, transparent) var(--s9) var(--s10)
   );
   box-sizing: border-box;
+  transition: transform 0.18s ease, box-shadow 0.25s ease;
+  will-change: transform;
+  transform-origin: center;
 }
 .pie__center {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 20vh;
-  height: 20vh;
+  width: 30vh;
+  height: 30vh;
   background: rgba(36, 38, 47);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  font-size: 10rem;
+  font-size: 5rem;
+}
+.pie:hover {
+  transform: scale(1.2);
+  box-shadow: inset 0 8px 24px rgba(255, 255, 255, 0.1), 0 8px 24px rgba(255, 255, 255, 0.4);
 }
