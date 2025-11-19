@@ -2,9 +2,11 @@
 <html>
 <head>
   <meta charset="UTF-8" />
+  <script src="submit_form.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Platypi&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+
   <title>eliza</title>
 </head>
 
@@ -15,8 +17,8 @@
   <h1>ELIZA</h1>
   <p>Company description.</p>
 
+    <br>
     <script>window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
-
     <a href="elizabio.html"
     id="elizabiobutton"
     class="button"
@@ -24,23 +26,47 @@
     data-gform
     data-entry="entry.1648822927"
     data-value="buttonID"
-    data-delay="400"
+    data-delay="300"
     data-status-id="status"
     >
     NATURAL/BIOLOGICAL
     </a>
-
     <p id="status"></p>
+    <br>
 
-    <!-- include the shared script (defer recommended) -->
-    <script src="submit_form.js" defer></script>
+    <script>
+    window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
+    <a href="elizatech.html"
+    id="elizatechbutton"
+    class="button"
+    style="background-color: #ec3ca2;"
+    data-gform
+    data-entry="entry.1648822927"
+    data-value="elizatech"
+    data-delay="200"
+    data-status-id="status"
+    >
+    TECHNOLOGICAL
+    </a>
+    <p id="status"></p>
+    <br>
     
-  <a href="elizatech.html" id="elizatechbutton" class="button" style="background-color: #ec3ca2;">TECHNOLOGICAL</a>
-  <p id="status"></p>
-  <br>
-    
-    <a href="elizapol.html" id="elizapolbutton" class="button" style="background-color: #ec3ca2;">SOCIOPOLITICAL</a>
-  <p id="status"></p>
+    <script>window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
+    <a href="elizapol.html"
+    id="elizapolbutton"
+    class="button"
+    style="background-color: #ec3ca2;"
+    data-gform
+    data-entry="entry.1648822927"
+    data-value="elizapol"
+    data-delay="100"
+    data-status-id="status"
+    >
+    SOCIOPOLITICAL
+    </a>
+    <p id="status"></p>
+    </script>
+    <br>
 
   <br>
   <br>
@@ -51,76 +77,3 @@
   <br>
 </body>
 </html>
-
-<!--
-<script>
-
-document.getElementById("elizabiobutton").addEventListener("click", function(event) {
-
-    event.preventDefault(); // stop the instant navigation
-
-    const formID = "1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8";
-    const entryID = "entry.1648822927";
-    const url = `https://docs.google.com/forms/d/${formID}/formResponse`;
-
-    const formData = new FormData();
-    formData.append(entryID, "elizabio");
-
-    fetch(url, {
-        method: "POST",
-        mode: "no-cors",
-        body: formData
-    });
-
-    // Give the submission time to fire
-    setTimeout(() => {
-        window.location.href = this.href;
-    }, 400);
-});
-
-document.getElementById("elizatechbutton").addEventListener("click", function(event) {
-
-    event.preventDefault(); // stop the instant navigation
-
-    const formID = "1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8";
-    const entryID = "entry.1648822927";
-    const url = `https://docs.google.com/forms/d/${formID}/formResponse`;
-
-    const formData = new FormData();
-    formData.append(entryID, "elizatech");
-
-    fetch(url, {
-        method: "POST",
-        mode: "no-cors",
-        body: formData
-    });
-
-    // Give the submission time to fire
-    setTimeout(() => {
-        window.location.href = this.href;
-    }, 400);
-});
-
-document.getElementById("elizapolbutton").addEventListener("click", function(event) {
-
-    event.preventDefault(); // stop the instant navigation
-
-    const formID = "1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8";
-    const entryID = "entry.1648822927";
-    const url = `https://docs.google.com/forms/d/${formID}/formResponse`;
-
-    const formData = new FormData();
-    formData.append(entryID, "elizapol");
-
-    fetch(url, {
-        method: "POST",
-        mode: "no-cors",
-        body: formData
-    });
-
-    // Give the submission time to fire
-    setTimeout(() => {
-        window.location.href = this.href;
-    }, 400);
-});
-</script>-->
