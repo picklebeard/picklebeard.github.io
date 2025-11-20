@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <script>window.sheetCsvUrl = "https://docs.google.com/spreadsheets/d/1iAi73leePAUecgtVYqUneI64RleFUV68N0gRVPJ5kus/export?format=csv&gid=539268331";</script>
-  <script src="access_sheets.js" defer></script>
+  <script src="access_3_sheets.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Platypi&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -19,36 +19,25 @@
   <h1 style="color: #ec3ca2">ELIZA</h1>
   <h1>BIOLOGICAL/NATURAL ENDING</h1><br><br>
 </div>
-
 <!--CHART STUFF STARTS HERE-->
-<div id="chart" class="pie"
+<div id="chart" class="pie2"
      role="img"
      style="
        --size:180px;
        --inner:48%;
        /* colors (your palette, same order as your gradient) */
-       --c1:#b53410; --c2:#ec3ca2; --c3:#5794e3; --c4:#5544b1; --c5:#564750;
-       --c6:#5a9843; --c7:#b6d468; --c8:#bfbfbf; --c9:#fc8210; --c10:#ad3cc4;
-       /* cumulative stops (must be increasing, final should be 100%) */
-       --s1: 0%; --s2: 0%; --s3: 0%; --s4: 0%; --s5: 0%;
-       --s6: 0%; --s7: 0%; --s8: 0%; --s9: 0%; --s10: 100%;
+       --c1:#68a870; --c2:#7db458; --c3:#7b85b7;
+       --s1: 0%; --s2: 0%; --s3: 100%;
        ">
-  <span class="pie__center">    <p><span data-cell="I2"></span>%</p>
-</span>
+  <span class="pie__center"><p><span data-cell="H2"></span>%</p></span>
 </div>
 <!--temp storage-->
 <div id="sheet-values" hidden>
-   <span data-cell="I29"></span>
-   <span data-cell="I2"></span>
-   <span data-cell="I5"></span>
-   <span data-cell="I8"></span>
-   <span data-cell="I11"></span>
-   <span data-cell="I14"></span>
-   <span data-cell="I17"></span>
-   <span data-cell="I20"></span>
-   <span data-cell="I23"></span>
-   <span data-cell="I26"></span>
-</div><script>
+   <span data-cell="H2"></span>
+   <span data-cell="H3"></span>
+   <span data-cell="H4"></span>
+</div>
+<script>
 // Wait for both DOM and sheet data
 document.addEventListener("DOMContentLoaded", () => {
   // Check if sheetReady exists, if not wait for it
@@ -66,6 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 50);
     });
   };
+  
   waitForSheet().then(() => {
     const pie = document.getElementById("chart");
     const spans = Array.from(document.querySelectorAll("#sheet-values [data-cell]"));
@@ -85,19 +75,19 @@ document.addEventListener("DOMContentLoaded", () => {
     pie.style.setProperty("--s1", "0%");
     values.forEach((v, i) => {
       cumulative += v;
-      pie.style.setProperty(`--s${i+1}`, cumulative + "%");
+      pie.style.setProperty(`--s${i+1}`, cumulative + "%");  // FIXED: parenthesis before backtick
     });
     
-    pie.style.setProperty("--s10", "100%");
+    pie.style.setProperty("--s3", "100%");
     
     const centerSpan = pie.querySelector(".pie__center [data-cell]");
     if(centerSpan){
-      centerSpan.textContent = values[1];
+      centerSpan.textContent = values[0];  // Note: changed to values[0] for H2, or use values[1] for H3
     }
     
     // Debug
-    for (let i = 1; i <= 10; i++) {
-      console.log(`--s${i}:`, pie.style.getPropertyValue(`--s${i}`));
+    for (let i = 1; i <= 3; i++) {
+      console.log(`--s${i}:`, pie.style.getPropertyValue(`--s${i}`));  // FIXED: parenthesis before backticks
     }
   });
 });
