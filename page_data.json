@@ -1,7 +1,7 @@
 {
   "general_page": {"realities_attained":"G2"},
   "eliza_page": {
-    "color": "#7b85b7",
+    "color": "#ec3ca2",
     "logo": "images/eliza.png",
     "text_name": "ELIZA",
     "text_ability": "ORGANIZED",
@@ -19,7 +19,7 @@
     "pol_value": "elizapol"
   },
   "eliza_bio_page": {
-    "color": "#7b85b7",
+    "color": "#ec3ca2",
     "end_color": "#68a870",
     "logo": "images/eliza.png",
     "text_name": "ELIZA",
@@ -29,7 +29,7 @@
     "ending_cell": "H2"
   },
   "eliza_tech_page": {
-    "color": "#7b85b7",
+    "color": "#ec3ca2",
     "end_color": "#96d16f",
     "logo": "images/eliza.png",
     "text_name": "ELIZA",
@@ -39,7 +39,7 @@
     "ending_cell": "H3"
   },
   "eliza_pol_page": {
-    "color": "#7b85b7",
+    "color": "#ec3ca2",
     "end_color": "#7b85b7",
     "logo": "images/eliza.png",
     "text_name": "ELIZA",
