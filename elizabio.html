@@ -16,7 +16,7 @@
   <h1 style="color: #ec3ca2">ELIZA</h1>
   <h1></h1>Biological/Natural Ending</h1><br><br>
 
-<div class="pie"
+<div id="chart" class="pie"
      role="img"
      style="
        --size:180px;
@@ -36,7 +36,6 @@
        --s9: VAR9;
        --s10: VAR10;
        ">
-       
   <span class="pie__center">    <p><span data-cell="F2"></span>%</p>
 </span>
 </div>
@@ -58,16 +57,16 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const pie = document.getElementById("chart");
-  const spans = document.querySelectorAll("#sheet-values [data-cell]");
-
+  // Collect all sheet values in order
+  const spans = document.querySelectorAll('#sheet-values [data-cell]');
   let cumulative = 0;
-
   spans.forEach((span, i) => {
     const value = parseFloat(span.textContent) || 0;
     cumulative += value;
-    pie.style.setProperty(`--s${i+1}`, cumulative + "%");
+    // --s1, --s2, --s3 … etc
+    pie.style.setProperty(`--s${i + 1}`, cumulative + "%");
   });
-
+  // Safety: ensure final stop is 100%
   pie.style.setProperty("--s10", "100%");
 });
 </script>
