@@ -22,7 +22,7 @@
         return;
       }
 
-      const url = `https://docs.google.com/forms/d/${formID}/formResponse`;
+      const url = `https://docs.google.com/forms/d/1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8/formResponse`;
       const formData = new FormData();
       formData.append(entryID, value);
 
