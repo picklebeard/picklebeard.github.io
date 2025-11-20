@@ -73,15 +73,15 @@ h1 {
   /* conic gradient uses cumulative stops (--s1..--s10) and colors (--c1..--c10) */
   background: conic-gradient(
     var(--c1, #ccc) 0 var(--s1),
-    var(--c2, transparent) var(--s1) var(--s2),
-    var(--c3, transparent) var(--s2) var(--s3),
-    var(--c4, transparent) var(--s3) var(--s4),
-    var(--c5, transparent) var(--s4) var(--s5),
-    var(--c6, transparent) var(--s5) var(--s6),
-    var(--c7, transparent) var(--s6) var(--s7),
-    var(--c8, transparent) var(--s7) var(--s8),
-    var(--c9, transparent) var(--s8) var(--s9),
-    var(--c10, transparent) var(--s9) var(--s10)
+    var(--c2, #ccc) var(--s1) var(--s2),
+    var(--c3, #ccc) var(--s2) var(--s3),
+    var(--c4, #ccc) var(--s3) var(--s4),
+    var(--c5, #ccc) var(--s4) var(--s5),
+    var(--c6, #ccc) var(--s5) var(--s6),
+    var(--c7, #ccc) var(--s6) var(--s7),
+    var(--c8, #ccc) var(--s7) var(--s8),
+    var(--c9, #ccc) var(--s8) var(--s9),
+    var(--c10, #ccc) var(--s9) var(--s10)
   );
   box-sizing: border-box;
   transition: transform 1s ease, box-shadow 0.5s ease;

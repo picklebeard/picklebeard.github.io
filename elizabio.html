@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   values.forEach((v, i) => {
     cumulative += v;
-    pie.style.setProperty(`--s${i+1}`, (Math.floor(cumulative)) + "%");
+    pie.style.setProperty(`--s${i+1}`, cumulative + "%");
   });
 
   // Ensure last stop is exactly 100%
