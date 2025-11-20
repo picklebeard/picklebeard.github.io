@@ -16,8 +16,8 @@
   <div class="swipe"></div>
   <img id="logo" alt="eliza_logo" style="float:right;width:30vh;height:30vh;">
 <div>
-  <h1 style="color: #ec3ca2">ELIZA</h1>
-  <h2 style= "font-style:italic;" id="color">BIOLOGICAL/NATURAL ENDING</h2><br>
+  <h1 id="color" id="text_name"></h1>
+  <h2 style= "font-style:italic;" id="color" id="ending_type"></h2><br>
 </div>
 
 <!--CHART STUFF STARTS HERE-->
@@ -30,7 +30,7 @@
        --c1:#68a870; --c2:#96d16f; --c3:#7b85b7;
        --s1: 0%; --s2: 0%; --s3: 100%;
        ">
-  <span class="pie2__center"><p id="color"><span data-cell="H2"></span>%</p></span>
+  <span class="pie2__center"><p id="color"><span id="ending_cell"></span>%</p></span>
 </div>
 <!--temp storage-->
 <div id="sheet-values" hidden>
@@ -105,7 +105,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(data => {
       const pageData = data.eliza_bio_page;
       // Color - set as a style property, not text content
-      document.body.style.color = pageData.color;
+      document.h1.style.color = pageData.color;
+      document.h2.style.color = pageData.end_color;
       // Image - set src attribute
       document.getElementById('logo').src = pageData.logo;
       // Text fields - set text content

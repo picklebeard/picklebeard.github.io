@@ -20,13 +20,10 @@
     "tech_link": "elizatech.html",
     "pol_link": "elizapol.html"
 
-    "bio_link_": "elizabio.html",
-    "tech_link": "elizatech.html",
-    "pol_link": "elizapol.html"
-
   },
   "eliza_bio_page": {
-    "color":"#68a870",
+    "color":"#7b85b7",
+    "end_color":"#68a870",
     "logo":"eliza.png",
     "text_name":"ELIZA",
     "text_ending_type": "BIOLOGICAL/NATURAL ENDING",
