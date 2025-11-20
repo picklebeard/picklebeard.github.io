@@ -126,7 +126,7 @@ h2 {
   background: conic-gradient(
     var(--c1, #ccc) 0 var(--s1),
     var(--c2, #ccc) var(--s1) var(--s2),
-    var(--c3, #ccc) var(--s2) var(--s3),
+    var(--c3, #ccc) var(--s2) var(--s3)
   );
   box-sizing: border-box;
   transition: transform 1s ease, box-shadow 0.5s ease;
