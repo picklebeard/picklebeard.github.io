@@ -17,7 +17,7 @@
 
 <div>
   <h1 style="color: #ec3ca2">ELIZA</h1>
-  <h1>BIOLOGICAL/NATURAL ENDING</h1><br><br>
+  <h2 style="color: #68a870">BIOLOGICAL/NATURAL ENDING</h2><br>
 </div>
 <!--CHART STUFF STARTS HERE-->
 <div id="chart" class="pie2"
@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
   };
   
   waitForSheet().then(() => {
-    const pie = document.getElementById("chart");
+    const pie2 = document.getElementById("chart");
     const spans = Array.from(document.querySelectorAll("#sheet-values [data-cell]"));
     
     // Parse and round values
@@ -72,22 +72,22 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Compute cumulative stops
     let cumulative = 0;
-    pie.style.setProperty("--s1", "0%");
+    pie2.style.setProperty("--s1", "0%");
     values.forEach((v, i) => {
       cumulative += v;
-      pie.style.setProperty(`--s${i+1}`, cumulative + "%");  // FIXED: parenthesis before backtick
+      pie2.style.setProperty(`--s${i+1}`, cumulative + "%");  // FIXED: parenthesis before backtick
     });
     
-    pie.style.setProperty("--s3", "100%");
+    pie2.style.setProperty("--s3", "100%");
     
-    const centerSpan = pie.querySelector(".pie__center [data-cell]");
+    const centerSpan = pie2.querySelector(".pie2__center [data-cell]");
     if(centerSpan){
       centerSpan.textContent = values[0];  // Note: changed to values[0] for H2, or use values[1] for H3
     }
     
     // Debug
     for (let i = 1; i <= 3; i++) {
-      console.log(`--s${i}:`, pie.style.getPropertyValue(`--s${i}`));  // FIXED: parenthesis before backticks
+      console.log(`--s${i}:`, pie2.style.getPropertyValue(`--s${i}`));  // FIXED: parenthesis before backticks
     }
   });
 });
