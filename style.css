@@ -110,8 +110,8 @@ h2 {
   font-size: 5rem;
 }
 .pie2:hover {
-  transform: scale(1.05);
   box-shadow: inset 0 8px 24px rgba(255, 255, 255, 0.2), 0 8px 24px rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
 }
 
 .pie2 {
@@ -149,6 +149,6 @@ h2 {
   font-size: 5rem;
 }
 .pie2:hover {
-  transform: scale(1.05);
   box-shadow: inset 0 8px 24px rgba(255, 255, 255, 0.2), 0 8px 24px rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
 }
