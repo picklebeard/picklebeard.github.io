@@ -12,7 +12,7 @@
 
 <body>
   <div class="swipe"></div>
-  <img id="logo" alt="logo" style="border-radius:50%;width:20vh;height:20vh;">
+  <img id="logo" alt="logo" style="border-radius:50%;width:25vh;height:25vh;">
 <div>
   <h1 id="text_name" class="color"></h1>
   <h2 style="font-style:italic;" id="text_ending_type" class="end-color"></h2><br>
@@ -27,7 +27,7 @@
        --c1:#68a870; --c2:#96d16f; --c3:#7b85b7;
        --s1: 0%; --s2: 0%; --s3: 100%;
        ">
-  <span class="pie2__center"><p class="page-color"><span id="ending_cell"></span>%</p></span>
+  <span class="pie2__center"><p class="page-color"><span data-cell="H2"></span>%</p></span>
 </div>
 <!--temp storage-->
 <div id="sheet-values" hidden>
@@ -116,9 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
       document.getElementById('text_ending_type').textContent = pageData.text_ending_type;
       document.getElementById('text_percentage').textContent = pageData.text_percentage;
       document.getElementById('text_ending').textContent = pageData.text_ending;
-      
-      // Ending cell - set data attribute (for H2 number)
-      document.querySelector('[data-cell="H2"]').textContent = pageData.ending_cell;
     });
 </script>
 </body>
