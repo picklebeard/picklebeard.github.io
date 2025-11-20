@@ -11,13 +11,12 @@
 
   <title>eliza</title>
 </head>
-
 <body>
 
   <div class="swipe"></div>
-  <img src="eliza.png" alt="eliza_logo" style="float:right;width:30vh;height:30vh;">
-  <h1 style="color: #ec3ca2">ELIZA</h1>
-  <p><h2 style="color: #ffffff; font-style:italic;">ORGANIZED</h2></p>
+  <img id="logo" alt="logo" style="border-radius:50%;width:20vh;height:20vh;">
+  <h1 id="text_name" class="page-color"></h1>
+  <p><h2 style="color: #ffffff; font-style:italic;" id="text_ability"></h2></p>
   <br>
 
 <!--CHART STUFF STARTS HERE-->
@@ -33,8 +32,7 @@
        --s1: 0%; --s2: 0%; --s3: 0%; --s4: 0%; --s5: 0%;
        --s6: 0%; --s7: 0%; --s8: 0%; --s9: 0%; --s10: 100%;
        ">
-  <span class="pie__center">    <p style="color: #ec3ca2"><span data-cell="I2"></span>%</p>
-</span>
+  <span class="pie__center"><p style="color: #ec3ca2"><span id="company_cell"></span>%</p></span>
 </div>
 <!--temp storage-->
 <div id="sheet-values" hidden>
@@ -48,7 +46,8 @@
    <span data-cell="I20"></span>
    <span data-cell="I23"></span>
    <span data-cell="I26"></span>
-</div><script>
+</div>
+<script>
 // Wait for both DOM and sheet data
 document.addEventListener("DOMContentLoaded", () => {
   // Check if sheetReady exists, if not wait for it
@@ -78,14 +77,14 @@ document.addEventListener("DOMContentLoaded", () => {
       return val;
     });
     
-    console.log("Values:", values); // Should now be an array of numbers!
+    console.log("Values:", values);
     
     // Compute cumulative stops
     let cumulative = 0;
     pie.style.setProperty("--s1", "0%");
     values.forEach((v, i) => {
       cumulative += v;
-      pie.style.setProperty(`--s${i+1}`, cumulative + "%");
+      pie.style.setProperty("--s" + (i+1), cumulative + "%");
     });
     
     pie.style.setProperty("--s10", "100%");
@@ -97,24 +96,22 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Debug
     for (let i = 1; i <= 10; i++) {
-      console.log(`--s${i}:`, pie.style.getPropertyValue(`--s${i}`));
+      console.log("--s" + i + ":", pie.style.getPropertyValue("--s" + i));
     }
   });
 });
 </script>
 <!--CHART STUFF ENDS HERE-->
 
-    <br><p style="font-style:italic;" id="text_percentage"></p></p><br>
+    <br><p style="font-style:italic;" id="text_percentage"></p><br>
     <p id="text_description"></p><br>
 
     <script>window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
     <a id="bio_link"
-    id="elizabiobutton"
     class="button"
     style="background-color: #68a870;"
     data-gform
     data-entry="entry.1648822927"
-    data-value="elizabio"
     data-delay="300"
     data-status-id="status"
     >
@@ -124,16 +121,13 @@ document.addEventListener("DOMContentLoaded", () => {
     <p id="status"></p>
     <br>
 
-    <script>
-    window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
+    <script>window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
     <a id="tech_link"
-    id="elizatechbutton"
     class="button"
     style="background-color: #96d16f;"
     data-gform
     data-entry="entry.1648822927"
-    data-value="elizatech"
-    data-delay="200"
+    data-delay="300"
     data-status-id="status"
     >
     <img src="images/wrench_w.png" alt="leaf" style="float:left;width:64px;height:64px;">
@@ -144,20 +138,17 @@ document.addEventListener("DOMContentLoaded", () => {
     
     <script>window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
     <a id="pol_link"
-    id="elizapolbutton"
     class="button"
     style="background-color: #7b85b7;"
     data-gform
     data-entry="entry.1648822927"
-    data-value="elizapol"
-    data-delay="100"
+    data-delay="300"
     data-status-id="status"
     >
     <img src="images/pfp_w.png" alt="leaf" style="float:left;width:64px;height:64px;">
       SOCIOPOLITICAL
     </a>
     <p id="status"></p>
-    </script>
 
   <br>
   <br>
@@ -170,19 +161,32 @@ document.addEventListener("DOMContentLoaded", () => {
     fetch('page_data.json')
       .then(response => response.json())
       .then(data => {
-        const pageData = data.eliza_bio_page;
-        document.body.style.color = pageData.color;
-        document.getElementById('color').eliza_page = pageData.color;
-        document.getElementById('logo').src = eliza_page.logo;
-        document.getElementById('text_name').eliza_page = pageData.text_name;
-        document.getElementById('text_ability').eliza_page = pageData.text_ending_type;
-        document.getElementById('text_percentage').eliza_page = pageData.text_percentage;
-        document.getElementById('text_description').eliza_page = pageData.text_description;
-        document.getElementById('company_cell').eliza_page = pageData.company_cell;
-
-        document.getElementById('bio_link').eliza_page = pageData.bio_link;
-        document.getElementById('tech_link').eliza_page = pageData.tech_link;
-        document.getElementById('pol_link').eliza_page = pageData.pol_link;
+        const pageData = data.eliza_page;
+        
+        // Apply color to elements with class
+        document.querySelectorAll('.page-color').forEach(el => {
+          el.style.color = pageData.color;
+        });
+        
+        // Image - set src
+        document.getElementById('logo').src = pageData.logo;
+        
+        // Text fields - set text content
+        document.getElementById('text_name').textContent = pageData.text_name;
+        document.getElementById('text_ability').textContent = pageData.text_ability;
+        document.getElementById('text_percentage').textContent = pageData.text_percentage;
+        document.getElementById('text_description').textContent = pageData.text_description;
+        document.getElementById('company_cell').textContent = pageData.company_cell;
+        
+        // Button links - set href attributes
+        document.getElementById('bio_link').href = pageData.bio_link;
+        document.getElementById('tech_link').href = pageData.tech_link;
+        document.getElementById('pol_link').href = pageData.pol_link;
+        
+        // Button data attributes - set data-value for Google Form submission
+        document.getElementById('bio_link').setAttribute('data-value', pageData.bio_value);
+        document.getElementById('tech_link').setAttribute('data-value', pageData.tech_value);
+        document.getElementById('pol_link').setAttribute('data-value', pageData.pol_value);
       });
   </script>
 

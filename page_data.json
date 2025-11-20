@@ -2,7 +2,7 @@
   "general_page": {"realities_attained":"G2"},
   "eliza_page": {
     "color": "#7b85b7",
-    "logo": "eliza.png",
+    "logo": "images/eliza.png",
     "text_name": "ELIZA",
     "text_ability": "ORGANIZED",
     "text_percentage": "This is the percentage of realities that end with ELIZA victorious.",
@@ -10,7 +10,13 @@
     "company_cell": "I2",
     "bio_link": "elizabio.html",
     "tech_link": "elizatech.html",
-    "pol_link": "elizapol.html"
+    "pol_link": "elizapol.html",
+    "bio_id": "elizabiobutton",
+    "bio_value": "elizapol",
+    "tech_id": "elizatechbutton",
+    "tech_value": "elizatech",
+    "pol_id": "elizapolbutton",
+    "pol_value": "elizapol"
   },
   "eliza_bio_page": {
     "color": "#7b85b7",
@@ -23,21 +29,24 @@
     "ending_cell": "H2"
   },
   "eliza_tech_page": {
-    "color": "#96d16f",
-    "logo": "eliza.png",
+    "color": "#7b85b7",
+    "end_color": "#96d16f",
+    "logo": "images/eliza.png",
     "text_name": "ELIZA",
     "text_ending_type": "TECHNOLOGICAL ENDING",
     "text_percentage": "This is how often the company reaches this type of reality. You just contributed to this.",
-    "text_ending": "Coming_soon",
+    "text_ending": "ending",
     "ending_cell": "H3"
   },
   "eliza_pol_page": {
     "color": "#7b85b7",
-    "logo": "eliza.png",
+    "end_color": "#7b85b7",
+    "logo": "images/eliza.png",
     "text_name": "ELIZA",
     "text_ending_type": "SOCIOPOLITICAL ENDING",
     "text_percentage": "This is how often the company reaches this type of reality. You just contributed to this.",
-    "text_ending": "Coming_soon",
+    "text_ending": "ending",
     "ending_cell": "H4"
+  },
   }
 }
