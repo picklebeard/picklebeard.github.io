@@ -15,7 +15,7 @@
 <body>
 
   <div class="swipe"></div>
-  <p>Company logo</p>
+  <img src="eliza.png" alt="eliza_logo" style="float:right;width:30vh;height:30vh;">
   <h1 style="color: #ec3ca2">ELIZA</h1>
   <p><h2 style="color: #ffffff; font-style:italic;">ORGANIZED</h2></p>
   <br>
@@ -104,19 +104,11 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 <!--CHART STUFF ENDS HERE-->
 
-    <br>
-    <p style="font-style:italic;">
-    This is the percentage of realities that end with ELIZA victorious.</p>
-    <br>
-    <p>
-Among the first truly competitive LLM models, open-source and non-profit company ELIZA led many early transistor-based advancements. The homepage on ELIZA.AI simply reads, "To All Humanity".
-    </p>
-    <br>
-    <p style="font-style:italic">Select the reality you've helped weave for a conclusion to your story.</p>
-    <br>
+    <br><p style="font-style:italic;" id="text_percentage"></p></p><br>
+    <p id="text_description"></p><br>
 
     <script>window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
-    <a href="elizabio.html"
+    <a id="bio_link"
     id="elizabiobutton"
     class="button"
     style="background-color: #68a870;"
@@ -134,7 +126,7 @@ Among the first truly competitive LLM models, open-source and non-profit company
 
     <script>
     window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
-    <a href="elizatech.html"
+    <a id="tech_link"
     id="elizatechbutton"
     class="button"
     style="background-color: #96d16f;"
@@ -151,7 +143,7 @@ Among the first truly competitive LLM models, open-source and non-profit company
     <br>
     
     <script>window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
-    <a href="elizapol.html"
+    <a id="pol_link"
     id="elizapolbutton"
     class="button"
     style="background-color: #7b85b7;"
@@ -173,5 +165,26 @@ Among the first truly competitive LLM models, open-source and non-profit company
   <a href="index.html" class="button">HOME</a>
   <br>
   <br>
+
+  <script>
+    fetch('page_data.json')
+      .then(response => response.json())
+      .then(data => {
+        const pageData = data.eliza_bio_page;
+        document.body.style.color = pageData.color;
+        document.getElementById('color').eliza_page = pageData.color;
+        document.getElementById('logo').src = eliza_page.logo;
+        document.getElementById('text_name').eliza_page = pageData.text_name;
+        document.getElementById('text_ability').eliza_page = pageData.text_ending_type;
+        document.getElementById('text_percentage').eliza_page = pageData.text_percentage;
+        document.getElementById('text_description').eliza_page = pageData.text_description;
+        document.getElementById('company_cell').eliza_page = pageData.company_cell;
+
+        document.getElementById('bio_link').eliza_page = pageData.bio_link;
+        document.getElementById('tech_link').eliza_page = pageData.tech_link;
+        document.getElementById('pol_link').eliza_page = pageData.pol_link;
+      });
+  </script>
+
 </body>
 </html>

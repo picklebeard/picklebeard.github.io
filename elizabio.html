@@ -17,8 +17,9 @@
 
 <div>
   <h1 style="color: #ec3ca2">ELIZA</h1>
-  <h2 style="color: #68a870; font-style:italic;"">BIOLOGICAL/NATURAL ENDING</h2><br>
+  <h2 style= "font-style:italic;" id="color">BIOLOGICAL/NATURAL ENDING</h2><br>
 </div>
+
 <!--CHART STUFF STARTS HERE-->
 <div id="chart" class="pie2"
      role="img"
@@ -29,7 +30,7 @@
        --c1:#68a870; --c2:#96d16f; --c3:#7b85b7;
        --s1: 0%; --s2: 0%; --s3: 100%;
        ">
-  <span class="pie2__center"><p style="color: #68a870"><span data-cell="H2"></span>%</p></span>
+  <span class="pie2__center"><p id="color"><span data-cell="H2"></span>%</p></span>
 </div>
 <!--temp storage-->
 <div id="sheet-values" hidden>
@@ -93,14 +94,29 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 </script>
 <!--whatever comes after the pie chart this way-->
-  <p  style="font-style:italic">This is how often the company ELIZA reaches this type of reality. You just contributed to this.</p>
-  <br>
-  <p>A path of exponential progress leads to terraforming projects across Earth, increasing biodiversity and abundance across all biomes, maximizing the planet’s life’s energy efficiency. A few terraforming projects make it to our moon. It eventually shines a vibrant blue, its artificial atmosphere sheltering small oceans, vast swathes of vegetation, and rapidly evolving animals. 
-</p>
-  <br>
-  <br>
-  <a href="index.html" class="button">HOME</a>
-  <br>
-  <br>
+
+  <p  style="font-style:italic" id="text_percentage"></p>
+  <br><p id="text_ending"></p><br><br>
+  <a href="index.html" class="button">HOME</a><br><br>
+
+  <script>
+  fetch('page_data.json')
+    .then(response => response.json())
+    .then(data => {
+      const pageData = data.eliza_bio_page;
+      // Color - set as a style property, not text content
+      document.body.style.color = pageData.color;
+      // Image - set src attribute
+      document.getElementById('logo').src = pageData.logo;
+      // Text fields - set text content
+      document.getElementById('text_name').textContent = pageData.text_name;
+      document.getElementById('text_ending_type').textContent = pageData.text_ending_type;
+      document.getElementById('text_percentage').textContent = pageData.text_percentage;
+      document.getElementById('text_ending').textContent = pageData.text_ending;
+      // Ending cell - set data attribute (for H2 number)
+      document.querySelector('[data-cell="H2"]').textContent = pageData.ending_cell;
+    });
+</script>
+
 </body>
 </html>
