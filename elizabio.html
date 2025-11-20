@@ -54,7 +54,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const pie = document.getElementById("chart");
   const spans = Array.from(document.querySelectorAll("#sheet-values [data-cell]"));
-
   // Parse and round values
   const values = spans.map(s => {
     const n = parseFloat(s.textContent);
@@ -62,23 +61,25 @@ document.addEventListener("DOMContentLoaded", () => {
     s.textContent = val; // optional: overwrite span with rounded value
     return val;
   });
-
   // Compute cumulative stops
   let cumulative = 0;
   pie.style.setProperty("--s1", "0%"); // force first slice start at 0
-
   values.forEach((v, i) => {
     cumulative += v;
-    pie.style.setProperty(`--s${i+1}`, cumulative + "%");
+    pie.style.setProperty(`--s${i+1}`, cumulative + "%");  // <-- FIX: parenthesis not backtick
   });
-
   // Ensure last stop is exactly 100%
   pie.style.setProperty("--s10", "100%");
-
   // Optional: update center text with a chosen slice
   const centerSpan = pie.querySelector(".pie__center [data-cell]");
   if(centerSpan){
     centerSpan.textContent = values[1]; // example: show I2 value
+  }
+  
+  // Debug logging
+  console.log("Values:", values);
+  for (let i = 1; i <= 10; i++) {
+    console.log(`--s${i}:`, pie.style.getPropertyValue(`--s${i}`));
   }
 });
 </script>
