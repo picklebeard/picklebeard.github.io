@@ -7,7 +7,6 @@
     "text_ability": "ORGANIZED",
     "text_percentage": "This is the percentage of realities that end with ELIZA victorious.",
     "text_description": "Among the first truly competitive LLM models, open-source and non-profit company ELIZA led many early transistor-based advancements. The homepage on ELIZA.AI simply reads, To All Humanity.",
-    "company_cell": "I2",
     "bio_link": "elizabio.html",
     "tech_link": "elizatech.html",
     "pol_link": "elizapol.html",
@@ -26,7 +25,6 @@
     "text_ending_type": "BIOLOGICAL/NATURAL ENDING",
     "text_percentage": "This is how often the company reaches this type of reality. You just contributed to this.",
     "text_ending": "A path of exponential progress leads to terraforming projects across Earth, increasing biodiversity and abundance across all biomes, maximizing the planet's life's energy efficiency. A few terraforming projects make it to our moon. It eventually shines a vibrant blue, its artificial atmosphere sheltering small oceans, vast swathes of vegetation, and rapidly evolving animals.",
-    "ending_cell": "H2"
   },
   "eliza_tech_page": {
     "color": "#ec3ca2",
@@ -36,7 +34,6 @@
     "text_ending_type": "TECHNOLOGICAL ENDING",
     "text_percentage": "This is how often the company reaches this type of reality. You just contributed to this.",
     "text_ending": "ending",
-    "ending_cell": "H3"
   },
   "eliza_pol_page": {
     "color": "#ec3ca2",
@@ -46,6 +43,5 @@
     "text_ending_type": "SOCIOPOLITICAL ENDING",
     "text_percentage": "This is how often the company reaches this type of reality. You just contributed to this.",
     "text_ending": "ending",
-    "ending_cell": "H4"
   }
 }
