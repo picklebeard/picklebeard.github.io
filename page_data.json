@@ -15,7 +15,12 @@
     "text_description":
     "Among the first truly competitive LLM models, open-source and non-profit company ELIZA led many early transistor-based advancements. The homepage on ELIZA.AI simply reads, To All Humanity.",
     "company_cell":"I2",
+    
     "bio_link": "elizabio.html",
+    "tech_link": "elizatech.html",
+    "pol_link": "elizapol.html"
+
+    "bio_link_": "elizabio.html",
     "tech_link": "elizatech.html",
     "pol_link": "elizapol.html"
 
