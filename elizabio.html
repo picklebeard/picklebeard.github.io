@@ -61,6 +61,28 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
   const pie = document.getElementById("chart");
+
+  // List the exact sheet cell IDs, in the order of your slices
+  const cellIds = ["I29","I2","I5","I8","I11","I14","I17","I20","I23","I26"];
+
+  let cumulative = 0;
+
+  cellIds.forEach((id, i) => {
+    // Read the value of each data-cell span
+    const value = parseFloat(document.querySelector(`[data-cell="${id}"]`)?.textContent) || 0;
+    cumulative += value;
+
+    // Set the corresponding CSS variable --s1, --s2, ..., --s10
+    pie.style.setProperty(`--s${i+1}`, cumulative + "%");
+  });
+
+  // Safety: ensure last stop is exactly 100%
+  pie.style.setProperty("--s10", "100%");
+});
+</script>
+<!--<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const pie = document.getElementById("chart");
   // Collect all sheet values in order
   const spans = document.querySelectorAll('#sheet-values [data-cell]');
   let cumulative = 0;
@@ -73,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Safety: ensure final stop is 100%
   pie.style.setProperty("--s10", "100%");
 });
-</script>
+</script>-->
 <!--whatever comes after the pie chart this way-->
   <p>Ending text.</p>
 
