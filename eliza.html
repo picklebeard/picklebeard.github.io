@@ -105,57 +105,56 @@ document.addEventListener("DOMContentLoaded", () => {
 </script>
 <!--CHART STUFF ENDS HERE-->
 
-  <script>
-    fetch('page_data.json')
-      .then(response => response.json())
-      .then(data => {
-        const pageData = data.eliza_page;
-        
-        // Apply color to elements with class
-        document.querySelectorAll('.page-color').forEach(el => {
-          el.style.color = pageData.color;
-        });
-        
-        // Image - set src
-        document.getElementById('logo').src = pageData.logo;
-        
-        // Text fields - set text content
-        document.getElementById('text_name').textContent = pageData.text_name;
-        document.getElementById('text_ability').textContent = pageData.text_ability;
-        document.getElementById('text_percentage').textContent = pageData.text_percentage;
-        document.getElementById('text_description').textContent = pageData.text_description;
-        
-        // Button links - set href attributes
-        document.getElementById('bio_link').href = pageData.bio_link;
-        document.getElementById('tech_link').href = pageData.tech_link;
-        document.getElementById('pol_link').href = pageData.pol_link;
-        
-        // Button data attributes - set data-value for Google Form submission
-        document.getElementById('bio_data').setAttribute('data-value', pageData.bio_value);
-        document.getElementById('tech_data').setAttribute('data-value', pageData.tech_value);
-        document.getElementById('pol_data').setAttribute('data-value', pageData.pol_value);
-      });
-  </script>
+<script>
+fetch('page_data.json')
+  .then(r => r.json())
+  .then(data => {
+    const pageData = data.eliza_page;
+    console.log('pageData', pageData); // debug
+
+    // set visual stuff (optional)
+    document.querySelectorAll('.page-color').forEach(el => el.style.color = pageData.color);
+    document.getElementById('logo').src = pageData.logo;
+    document.getElementById('text_name').textContent = pageData.text_name;
+    document.getElementById('text_ability').textContent = pageData.text_ability;
+    document.getElementById('text_percentage').textContent = pageData.text_percentage;
+    document.getElementById('text_description').textContent = pageData.text_description;
+
+    // BUTTON — use one id (bio_button) and set href + data-value
+    const bio = document.getElementById('bio_button');
+    if (bio) {
+      bio.href = pageData.bio_link;
+      bio.dataset.value = pageData.bio_value; // safer than setAttribute, and accessible via el.dataset.value
+      console.log('bio dataset.value =', bio.dataset.value); // debug
+    }
+
+    // same for tech/pol if present
+    const tech = document.getElementById('tech_button');
+    if (tech) {
+      tech.href = pageData.tech_link;
+      tech.dataset.value = pageData.tech_value;
+    }
+  })
+  .catch(err => console.error('page_data.json load error', err));
+</script>
 
 
     <br><p style="font-style:italic;" id="text_percentage"></p><br>
     <p id="text_description"></p><br>
 
     <script>window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
-    <a id="bio_link"
-    id="biobutton"
-    class="button"
+    <a id="bio_button"
+    class="button page-color"
     style="background-color: #68a870;"
     data-gform
     data-entry="entry.1648822927"
-    id="bio_data"
     data-delay="300"
     data-status-id="status"
     >
     <img src="images/leaf_w.png" alt="leaf" style="float:left;width:64px;height:64px;">
-      NATURAL/BIOLOGICAL
-    </a>
+    NATURAL/BIOLOGICAL</a>
     <p id="status"></p>
+<!--
     <br>
 
     <script>window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
@@ -190,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
       SOCIOPOLITICAL
     </a>
     <p id="status"></p>
-
+-->
   <br>
   <br>
 
