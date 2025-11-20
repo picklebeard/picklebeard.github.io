@@ -128,12 +128,20 @@ fetch('page_data.json')
       console.log('bio dataset.value =', bio.dataset.value); // debug
     }
 
-    // same for tech/pol if present
+    // same for tech
     const tech = document.getElementById('tech_button');
     if (tech) {
       tech.href = pageData.tech_link;
       tech.dataset.value = pageData.tech_value;
     }
+    
+    // same for pol 
+    const pol = document.getElementById('pol_button');
+    if (pol) {
+      pol.href = pageData.pol_link;
+      pol.dataset.value = pageData.pol_value;
+    }
+
   })
   .catch(err => console.error('page_data.json load error', err));
 </script>
@@ -154,42 +162,33 @@ fetch('page_data.json')
     <img src="images/leaf_w.png" alt="leaf" style="float:left;width:64px;height:64px;">
     NATURAL/BIOLOGICAL</a>
     <p id="status"></p>
-<!--
-    <br>
 
     <script>window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
-    <a id="tech_link"
-    id="techbutton"
-    class="button"
+    <a id="tech_button"
+    class="button page-color"
     style="background-color: #96d16f;"
     data-gform
     data-entry="entry.1648822927"
-    id="tech_data"
     data-delay="300"
     data-status-id="status"
     >
-    <img src="images/wrench_w.png" alt="leaf" style="float:left;width:64px;height:64px;">
-      TECHNOLOGICAL
-    </a>
+    <img src="images/wrench_w.png" alt="wrench" style="float:left;width:64px;height:64px;">
+    TECHNOLOGICAL</a>
     <p id="status"></p>
-    <br>
     
     <script>window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
-    <a id="pol_link"
-    id="polbutton"
-    class="button"
+    <a id="pol_button"
+    class="button page-color"
     style="background-color: #7b85b7;"
     data-gform
     data-entry="entry.1648822927"
-    id="pol_data"
     data-delay="300"
     data-status-id="status"
     >
-    <img src="images/pfp_w.png" alt="leaf" style="float:left;width:64px;height:64px;">
-      SOCIOPOLITICAL
-    </a>
+    <img src="images/pfp_w.png" alt="pfp" style="float:left;width:64px;height:64px;">
+    SOCIOPOLITICAL</a>
     <p id="status"></p>
--->
+
   <br>
   <br>
 
