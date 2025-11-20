@@ -17,6 +17,90 @@
   <h1 style="color: #ec3ca2">ELIZA</h1>
   <p>Company description.</p>
 
+<!--CHART STUFF STARTS HERE-->
+<div id="chart" class="pie"
+     role="img"
+     style="
+       --size:180px;
+       --inner:48%;
+       /* colors (your palette, same order as your gradient) */
+       --c1:#b53410; --c2:#ec3ca2; --c3:#5794e3; --c4:#5544b1; --c5:#564750;
+       --c6:#5a9843; --c7:#b6d468; --c8:#bfbfbf; --c9:#fc8210; --c10:#ad3cc4;
+       /* cumulative stops (must be increasing, final should be 100%) */
+       --s1: 0%; --s2: 0%; --s3: 0%; --s4: 0%; --s5: 0%;
+       --s6: 0%; --s7: 0%; --s8: 0%; --s9: 0%; --s10: 100%;
+       ">
+  <span class="pie__center">    <p><span style="color: #ec3ca2" data-cell="I2"></span>%</p>
+</span>
+</div>
+<!--temp storage-->
+<div id="sheet-values" hidden>
+   <span data-cell="I29"></span>
+   <span data-cell="I2"></span>
+   <span data-cell="I5"></span>
+   <span data-cell="I8"></span>
+   <span data-cell="I11"></span>
+   <span data-cell="I14"></span>
+   <span data-cell="I17"></span>
+   <span data-cell="I20"></span>
+   <span data-cell="I23"></span>
+   <span data-cell="I26"></span>
+</div><script>
+// Wait for both DOM and sheet data
+document.addEventListener("DOMContentLoaded", () => {
+  // Check if sheetReady exists, if not wait for it
+  const waitForSheet = () => {
+    if (window.sheetReady) {
+      return window.sheetReady;
+    }
+    // If not ready yet, wait a bit and check again
+    return new Promise(resolve => {
+      const checkInterval = setInterval(() => {
+        if (window.sheetReady) {
+          clearInterval(checkInterval);
+          window.sheetReady.then(resolve);
+        }
+      }, 50);
+    });
+  };
+  waitForSheet().then(() => {
+    const pie = document.getElementById("chart");
+    const spans = Array.from(document.querySelectorAll("#sheet-values [data-cell]"));
+    
+    // Parse and round values
+    const values = spans.map(s => {
+      const n = parseFloat(s.textContent);
+      const val = Number.isFinite(n) ? Math.round(n * 10) / 10 : 0;
+      s.textContent = val;
+      return val;
+    });
+    
+    console.log("Values:", values); // Should now be an array of numbers!
+    
+    // Compute cumulative stops
+    let cumulative = 0;
+    pie.style.setProperty("--s1", "0%");
+    values.forEach((v, i) => {
+      cumulative += v;
+      pie.style.setProperty(`--s${i+1}`, cumulative + "%");
+    });
+    
+    pie.style.setProperty("--s10", "100%");
+    
+    const centerSpan = pie.querySelector(".pie__center [data-cell]");
+    if(centerSpan){
+      centerSpan.textContent = values[1];
+    }
+    
+    // Debug
+    for (let i = 1; i <= 10; i++) {
+      console.log(`--s${i}:`, pie.style.getPropertyValue(`--s${i}`));
+    }
+  });
+});
+</script>
+<!--CHART STUFF ENDS HERE-->
+
     <br>
     <script>window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
     <a href="elizabio.html"

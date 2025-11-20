@@ -17,9 +17,10 @@
 
 <div>
   <h1 style="color: #ec3ca2">ELIZA</h1>
-  <h1></h1>Biological/Natural Ending</h1><br><br>
+  <h1></h1>BIOLOGICAL/NATURAL ENDING</h1><br><br>
 </div>
 
+<!--CHART STUFF STARTS HERE-->
 <div id="chart" class="pie"
      role="img"
      style="
@@ -35,7 +36,6 @@
   <span class="pie__center">    <p><span data-cell="I2"></span>%</p>
 </span>
 </div>
-
 <!--temp storage-->
 <div id="sheet-values" hidden>
    <span data-cell="I29"></span>
@@ -66,7 +66,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 50);
     });
   };
-  
   waitForSheet().then(() => {
     const pie = document.getElementById("chart");
     const spans = Array.from(document.querySelectorAll("#sheet-values [data-cell]"));
@@ -103,26 +102,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
-<!--<script>
-document.addEventListener("DOMContentLoaded", () => {
-  const pie = document.getElementById("chart");
-  // Collect all sheet values in order
-  const spans = document.querySelectorAll('#sheet-values [data-cell]');
-  let cumulative = 0;
-  spans.forEach((span, i) => {
-    const value = parseFloat(span.textContent) || 0;
-    cumulative += value;
-    // --s1, --s2, --s3 … etc
-    pie.style.setProperty(`--s${i + 1}`, cumulative + "%");
-  });
-  // Safety: ensure final stop is 100%
-  pie.style.setProperty("--s10", "100%");
-});
-</script>-->
 <!--whatever comes after the pie chart this way-->
-  <p>Ending text.</p>
-
+  <p>This is how often the company ELIZA reaches this category of ending among all the others.</p>
   <br>
+  <br>
+  <p> ENDING HERE</p>
   <br>
   <br>
   <a href="index.html" class="button">HOME</a>
