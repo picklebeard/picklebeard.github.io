@@ -32,7 +32,7 @@
        --s1: 0%; --s2: 0%; --s3: 0%; --s4: 0%; --s5: 0%;
        --s6: 0%; --s7: 0%; --s8: 0%; --s9: 0%; --s10: 100%;
        ">
-  <span class="pie__center">    <!--<p><span data-cell="I2"></span>%</p>-->
+  <span class="pie__center">    <p><span data-cell="I2"></span>%</p>
 </span>
 </div>
 
@@ -52,37 +52,30 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-  // Select all spans
-  const spans = document.querySelectorAll("#sheet-values span");
-
-  spans.forEach(span => {
-    const value = parseFloat(span.textContent) || 0;
-    // Round to 1 decimal and overwrite the span
-    span.textContent = Math.round(value * 10) / 10;
-  });
-});
-</script>
-
-<!-- read the values from the hidden spans and update the CSS variables for the pie chart accordingly.-->
-<script>
-document.addEventListener("DOMContentLoaded", () => {
   const pie = document.getElementById("chart");
+  const sheetValues = document.getElementById("sheet-values");
+  const spans = Array.from(sheetValues.querySelectorAll('[data-cell]'));
 
-  // List the exact sheet cell IDs, in the order of your slices
-  const cellIds = ["I29","I2","I5","I8","I11","I14","I17","I20","I23","I26"];
+  // Read numeric values
+  const values = spans.map(s => parseFloat(s.textContent) || 0);
+  const total = values.reduce((a,b) => a+b, 0);
 
+  // Normalize percentages
+  const percentages = total > 0 ? values.map(v => (v/total)*100) : values.map(()=>10);
+
+  // Set cumulative stops
   let cumulative = 0;
-
-  cellIds.forEach((id, i) => {
-    // Read the value of each data-cell span
-    const value = parseFloat(document.querySelector(`[data-cell="${id}"]`)?.textContent) || 0;
-    cumulative += value;
-
-    // Set the corresponding CSS variable --s1, --s2, ..., --s10
+  percentages.forEach((p, i) => {
+    cumulative += p;
     pie.style.setProperty(`--s${i+1}`, cumulative + "%");
   });
-  // Safety: ensure last stop is exactly 100%
   pie.style.setProperty("--s10", "100%");
+
+  // Update center span with a chosen value (example: 2nd slice, I2)
+  const centerSpan = pie.querySelector('.pie__center [data-cell]');
+  if (centerSpan) {
+    centerSpan.textContent = Math.round(percentages[1] * 10) / 10;
+  }
 });
 </script>
 <!--<script>
