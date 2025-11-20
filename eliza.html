@@ -114,6 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
     style="background-color: #68a870;"
     data-gform
     data-entry="entry.1648822927"
+    id="bio_data"
     data-delay="300"
     data-status-id="status"
     >
@@ -129,6 +130,7 @@ document.addEventListener("DOMContentLoaded", () => {
     style="background-color: #96d16f;"
     data-gform
     data-entry="entry.1648822927"
+    id="tech_data"
     data-delay="300"
     data-status-id="status"
     >
@@ -144,6 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
     style="background-color: #7b85b7;"
     data-gform
     data-entry="entry.1648822927"
+    id="pol_data"
     data-delay="300"
     data-status-id="status"
     >
@@ -186,9 +189,9 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById('pol_link').href = pageData.pol_link;
         
         // Button data attributes - set data-value for Google Form submission
-        document.getElementById('bio_link').setAttribute('data-value', pageData.bio_value);
-        document.getElementById('tech_link').setAttribute('data-value', pageData.tech_value);
-        document.getElementById('pol_link').setAttribute('data-value', pageData.pol_value);
+        document.getElementById('bio_data').setAttribute('data-value', pageData.bio_value);
+        document.getElementById('tech_data').setAttribute('data-value', pageData.tech_value);
+        document.getElementById('pol_data').setAttribute('data-value', pageData.pol_value);
       });
   </script>
 
