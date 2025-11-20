@@ -66,10 +66,10 @@ document.addEventListener("DOMContentLoaded", () => {
   // Compute cumulative stops
   let cumulative = 0;
   pie.style.setProperty("--s1", "0%"); // force first slice start at 0
-  
+
   values.forEach((v, i) => {
     cumulative += v;
-    pie.style.setProperty(`--s${i+1}`, cumulative + "%");
+    pie.style.setProperty(`--s${i+1}`, (Math.round(cumulative*1)/1) + "%");
   });
 
   // Ensure last stop is exactly 100%
