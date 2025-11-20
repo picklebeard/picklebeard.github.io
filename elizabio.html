@@ -48,41 +48,59 @@
    <span data-cell="I20"></span>
    <span data-cell="I23"></span>
    <span data-cell="I26"></span>
-</div>
-<script>
-window.sheetReady.then(() => {
-  const pie = document.getElementById("chart");
-  const spans = Array.from(document.querySelectorAll("#sheet-values [data-cell]"));
+</div><script>
+// Wait for both DOM and sheet data
+document.addEventListener("DOMContentLoaded", () => {
+  // Check if sheetReady exists, if not wait for it
+  const waitForSheet = () => {
+    if (window.sheetReady) {
+      return window.sheetReady;
+    }
+    // If not ready yet, wait a bit and check again
+    return new Promise(resolve => {
+      const checkInterval = setInterval(() => {
+        if (window.sheetReady) {
+          clearInterval(checkInterval);
+          window.sheetReady.then(resolve);
+        }
+      }, 50);
+    });
+  };
   
-  // Parse and round values
-  const values = spans.map(s => {
-    const n = parseFloat(s.textContent);
-    const val = Number.isFinite(n) ? Math.round(n * 10) / 10 : 0;
-    s.textContent = val;
-    return val;
+  waitForSheet().then(() => {
+    const pie = document.getElementById("chart");
+    const spans = Array.from(document.querySelectorAll("#sheet-values [data-cell]"));
+    
+    // Parse and round values
+    const values = spans.map(s => {
+      const n = parseFloat(s.textContent);
+      const val = Number.isFinite(n) ? Math.round(n * 10) / 10 : 0;
+      s.textContent = val;
+      return val;
+    });
+    
+    console.log("Values:", values); // Should now be an array of numbers!
+    
+    // Compute cumulative stops
+    let cumulative = 0;
+    pie.style.setProperty("--s1", "0%");
+    values.forEach((v, i) => {
+      cumulative += v;
+      pie.style.setProperty(`--s${i+1}`, cumulative + "%");
+    });
+    
+    pie.style.setProperty("--s10", "100%");
+    
+    const centerSpan = pie.querySelector(".pie__center [data-cell]");
+    if(centerSpan){
+      centerSpan.textContent = values[1];
+    }
+    
+    // Debug
+    for (let i = 1; i <= 10; i++) {
+      console.log(`--s${i}:`, pie.style.getPropertyValue(`--s${i}`));
+    }
   });
-  
-  console.log("Values:", values); // Check this - should be an array of numbers
-  
-  // Compute cumulative stops
-  let cumulative = 0;
-  pie.style.setProperty("--s1", "0%");
-  values.forEach((v, i) => {
-    cumulative += v;
-    pie.style.setProperty(`--s${i+1}`, cumulative + "%");
-  });
-  
-  pie.style.setProperty("--s10", "100%");
-  
-  const centerSpan = pie.querySelector(".pie__center [data-cell]");
-  if(centerSpan){
-    centerSpan.textContent = values[1];
-  }
-  
-  // Debug
-  for (let i = 1; i <= 10; i++) {
-    console.log(`--s${i}:`, pie.style.getPropertyValue(`--s${i}`));
-  }
 });
 </script>
 <!--<script>
