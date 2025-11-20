@@ -10,11 +10,11 @@ body {
 }
 
 h1 {
-  line-height: 1em;
   font-family: 'Rakkas', serif;
   color:paleturquoise;
   font-size: 128px;
   text-shadow: 0 0 5px #ffffff06, 0 0 5px #ffffff06, 0 0 20px #ffffff06;
+  line-height: 1em;
 }
 
 h2 {
