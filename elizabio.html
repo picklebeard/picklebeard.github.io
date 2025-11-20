@@ -72,8 +72,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const value = parseFloat(document.querySelector(`[data-cell="${id}"]`)?.textContent) || 0;
     cumulative += value;
 
+    // Round cumulative to 1 decimal
+    const rounded = Math.round(cumulative * 10) / 10;
+
     // Set the corresponding CSS variable --s1, --s2, ..., --s10
-    pie.style.setProperty(`--s${i+1}`, cumulative + "%");
+    pie.style.setProperty(`--s${i+1}`, rounded + "%");
   });
 
   // Safety: ensure last stop is exactly 100%
