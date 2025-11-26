@@ -65,8 +65,9 @@ h3 {
 }
 
 .grease {
+  text-align: left;
   font-family: 'Special Elite', cursive;
-  font-size: 0.5rem;
+  font-size: 1.5rem;
   color: rgb(229, 255, 239);
 }
 
