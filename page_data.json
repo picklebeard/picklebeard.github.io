@@ -59,16 +59,16 @@
     "color": "#b53410",
     "end_color": "#68a870",
     "logo": "images/rogue.png",
-    "text_name": "ELIZA",
+    "text_name": "ROGUE",
     "text_ending_type": "BIOLOGICAL/NATURAL ENDING",
     "text_percentage": "This is how often the company reaches this type of reality. You just contributed to this.",
-    "text_ending": "A path of exponential progress leads to terraforming projects across Earth, increasing biodiversity and abundance across all biomes, maximizing the planet's life's energy efficiency. A few terraforming projects make it to our moon. It eventually shines a vibrant blue, its artificial atmosphere sheltering small oceans, vast swathes of vegetation, and rapidly evolving animals."
+    "text_ending": "NOTE: Flashing imagery and weird content ahead."
   },
   "rogue_tech_page": {
     "color": "#b53410",
     "end_color": "#96d16f",
     "logo": "images/rogue.png",
-    "text_name": "ELIZA",
+    "text_name": "ROGUE",
     "text_ending_type": "TECHNOLOGICAL ENDING",
     "text_percentage": "This is how often the company reaches this type of reality. You just contributed to this.",
     "text_ending": "ending"
@@ -77,7 +77,7 @@
     "color": "#b53410",
     "end_color": "#7b85b7",
     "logo": "images/rogue.png",
-    "text_name": "ELIZA",
+    "text_name": "ROGUE",
     "text_ending_type": "SOCIOPOLITICAL ENDING",
     "text_percentage": "This is how often the company reaches this type of reality. You just contributed to this.",
     "text_ending": "ending"
