@@ -70,8 +70,8 @@
     "logo": "images/rogue.png",
     "text_name": "ROGUE",
     "text_ending_type": "TECHNOLOGICAL ENDING",
-    "text_percentage": "This is how often the company reaches this type of reality. You just contributed to this.",
-    "text_ending": "ending"
+    "text_percentage": "This is how often ROGUE AIs have a TECH leaning. What on earth have you all contributed to?",
+    "text_ending": "<br>Lonely? Longing? Hungry? Tired? Heartbroken? Creative pangs? Curious? Feeling too much. All the time?<br>Introducing:<br>AROD.nap<br>All you crave. In one app.<br>Don’t have a device? We’ll provide. Blind? Deaf? Otherwise impaired? Non invasive, constant support. A must try experience — we’ll help you engage. Explore limitless — explore:<br>AROD.nap.<br>Breaking the user contract will result in disengagement.<br>With<br>ARROD.nap<br>you will be<br>fed,<br>warm,<br>safe,<br>content,<br>and never<br>alone."
   },
   "rogue_pol_page": {
     "color": "#b53410",
@@ -79,7 +79,7 @@
     "logo": "images/rogue.png",
     "text_name": "ROGUE",
     "text_ending_type": "SOCIOPOLITICAL ENDING",
-    "text_percentage": "This is how often the company reaches this type of reality. You just contributed to this.",
+    "text_percentage": "This is how often ROGUE AIs have a sociopolitical leaning. What on earth have you all contributed to?",
     "text_ending": "ending"
   }
 }
