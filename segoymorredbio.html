@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <script>window.sheetCsvUrl = "https://docs.google.com/spreadsheets/d/1iAi73leePAUecgtVYqUneI64RleFUV68N0gRVPJ5kus/export?format=csv&gid=539268331";</script>
+  <script src="access_3_sheet.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Platypi&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>segoymorredbio</title>
+</head>
+
+<body>
+  <div class="swipe"></div>
+  <img id="logo" alt="logo" style="border-radius:50%;width:25vh;height:25vh;">
+<div>
+  <h1 id="text_name" class="page-color"></h1>
+  <h2 style="font-style:italic;" id="text_ending_type" class="end-color"></h2><br>
+</div>
+<!--CHART STUFF STARTS HERE-->
+<div id="chart" class="pie2"
+     role="img"
+     style="
+       --size:180px;
+       --inner:48%;
+       /* colors (your palette, same order as your gradient) */
+       --c1:#68a870; --c2:#96d16f; --c3:#7b85b7;
+       --s1: 0%; --s2: 0%; --s3: 100%;
+       ">
+  <span class="pie2__center"><p class="end-color"><span data-cell="H17"></span>%</p></span>
+</div>
+<!--temp storage-->
+<div id="sheet-values" hidden>
+   <span data-cell="H17"></span>
+   <span data-cell="H18"></span>
+   <span data-cell="H19"></span>
+</div>
+<script>
+// Wait for both DOM and sheet data
+document.addEventListener("DOMContentLoaded", () => {
+  // Check if sheetReady exists, if not wait for it
+  const waitForSheet = () => {
+    if (window.sheetReady) {
+      return window.sheetReady;
+    }
+    // If not ready yet, wait a bit and check again
+    return new Promise(resolve => {
+      const checkInterval = setInterval(() => {
+        if (window.sheetReady) {
+          clearInterval(checkInterval);
+          window.sheetReady.then(resolve);
+        }
+      }, 50);
+    });
+  };
+  
+  waitForSheet().then(() => {
+    const pie2 = document.getElementById("chart");
+    const spans = Array.from(document.querySelectorAll("#sheet-values [data-cell]"));
+    
+    // Parse and round values
+    const values = spans.map(s => {
+      const n = parseFloat(s.textContent);
+      const val = Number.isFinite(n) ? Math.round(n * 10) / 10 : 0;
+      s.textContent = val;
+      return val;
+    });
+    
+    console.log("Values:", values);
+    
+    // Compute cumulative stops
+    let cumulative = 0;
+    pie2.style.setProperty("--s1", "0%");
+    values.forEach((v, i) => {
+      cumulative += v;
+      pie2.style.setProperty("--s" + (i+1), cumulative + "%");
+    });
+    
+    pie2.style.setProperty("--s3", "100%");
+    
+    const centerSpan = pie2.querySelector(".pie2__center [data-cell]");
+      if(centerSpan){
+      const n = parseFloat(centerSpan.textContent);
+      centerSpan.textContent = Number.isFinite(n) ? Math.round(n * 10) / 10 : '';
+    } 
+    
+    // Debug
+    for (let i = 1; i <= 3; i++) {
+      console.log("--s" + i + ":", pie2.style.getPropertyValue("--s" + i));
+    }
+  });
+});
+</script>
+<!--whatever comes after the pie chart this way-->
+  <p style="font-style:italic" id="text_percentage"></p>
+  <br><p id="text_ending"></p><br><br>
+  <a href="index.html" class="button">HOME</a><br><br>
+  <script>
+  fetch('page_data.json')
+    .then(response => response.json())
+    .then(data => {
+      const pageData = data.segoymorred_bio_page;
+      
+      // Apply colors to multiple elements using classes
+      document.querySelectorAll('.page-color').forEach(el => {
+        el.style.color = pageData.color;
+      });
+      document.querySelectorAll('.end-color').forEach(el => {
+        el.style.color = pageData.end_color;
+      });
+      
+      // Image - set src attribute
+      document.getElementById('logo').src = pageData.logo;
+      
+      // Text fields - set text content
+      document.getElementById('text_name').textContent = pageData.text_name;
+      document.getElementById('text_ending_type').textContent = pageData.text_ending_type;
+      document.getElementById('text_percentage').textContent = pageData.text_percentage;
+      document.getElementById('text_ending').textContent = pageData.text_ending;
+    });
+</script>
+</body>
+</html>
