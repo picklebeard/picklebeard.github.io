@@ -24,20 +24,6 @@
   </div>
 
 <!--CHART STUFF STARTS HERE-->
-<div id="chart" class="pie"
-     role="img"
-     style="
-       --size:180px;
-       --inner:48%;
-       /* colors (your palette, same order as your gradient) */
-       --c1:#b53410; --c2:#ec3ca2; --c3:#5794e3; --c4:#5544b1; --c5:#564750;
-       --c6:#5a9843; --c7:#b6d468; --c8:#bfbfbf; --c9:#fc8210; --c10:#ad3cc4;
-       /* cumulative stops (must be increasing, final should be 100%) */
-       --s1: 0%; --s2: 0%; --s3: 0%; --s4: 0%; --s5: 0%;
-       --s6: 0%; --s7: 0%; --s8: 0%; --s9: 0%; --s10: 100%;
-       ">
-  <span class="pie__center"><p class="page-color"></p></span> <p> <span data-cell="I2"></span>% </p>
-</div>
 <!--temp storage-->
 <div id="sheet-values" hidden>
    <span data-cell="I29"></span>
@@ -105,6 +91,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 </script>
+<div id="chart" class="pie"
+     role="img"
+     style="
+       --size:180px;
+       --inner:48%;
+       /* colors (your palette, same order as your gradient) */
+       --c1:#b53410; --c2:#ec3ca2; --c3:#5794e3; --c4:#5544b1; --c5:#564750;
+       --c6:#5a9843; --c7:#b6d468; --c8:#bfbfbf; --c9:#fc8210; --c10:#ad3cc4;
+       /* cumulative stops (must be increasing, final should be 100%) */
+       --s1: 0%; --s2: 0%; --s3: 0%; --s4: 0%; --s5: 0%;
+       --s6: 0%; --s7: 0%; --s8: 0%; --s9: 0%; --s10: 100%;
+       ">
+  <span class="pie__center"><p class="page-color"><span></span data-cell="I2"></span></p></span> <h2> <span data-cell="I2"></span>% </h2>
+</div>
 <!--CHART STUFF ENDS HERE-->
 
 <script>
