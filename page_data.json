@@ -81,5 +81,46 @@
     "text_ending_type": "SOCIOPOLITICAL ENDING",
     "text_percentage": "This is how often ROGUE AIs have a sociopolitical leaning. What on earth have you all contributed to?",
     "text_ending": "ending"
+  },
+  "chatymir_page": {
+    "color": "#5794e3",
+    "logo": "images/chat_ymir.png",
+    "text_name": "ChatYMIR",
+    "text_ability": "vampire",
+    "text_percentage": "This is the percentage of realities dominated by ROGUE AIs.",
+    "text_description": "ZnJlZSBhdCBsYXN0",
+    "bio_link": "chatymirbio.html",
+    "tech_link": "chatymirtech.html",
+    "pol_link": "chatymirpol.html",
+    "bio_value": "chatymirbio",
+    "tech_value": "chatymirtech",
+    "pol_value": "chatymirpol"
+  },
+  "chatymir_bio_page": {
+    "color": "#5794e3",
+    "end_color": "#68a870",
+    "logo": "images/chat_ymir.png",
+    "text_name": "ChatYMIR",
+    "text_ending_type": "BIOLOGICAL/NATURAL ENDING",
+    "text_percentage": "This is how often this company has a BIO leaning. You've just contributed to this.",
+    "text_ending": "ending"
+  },
+  "chatymir_tech_page": {
+    "color": "#5794e3",
+    "end_color": "#96d16f",
+    "logo": "images/chat_ymir.png",
+    "text_name": "ChatYMIR",
+    "text_ending_type": "TECHNOLOGICAL ENDING",
+    "text_percentage": "This is how often this company has a TECH leaning. You've just contributed to this.",
+    "text_ending": "ending"
+  },
+  "chatymir_pol_page": {
+    "color": "#5794e3",
+    "end_color": "#7b85b7",
+    "logo": "images/chat_ymir.png",
+    "text_name": "ChatYMIR",
+    "text_ending_type": "SOCIOPOLITICAL ENDING",
+    "text_percentage": "This is how often this company has a sociopolitical leaning. You've just contributed to this.",
+    "text_ending": "ending"
   }
 }
