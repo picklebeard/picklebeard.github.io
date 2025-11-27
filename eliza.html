@@ -91,11 +91,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
     pie.style.setProperty("--s10", "100%");
     
-    const centerSpan = pie.querySelector(".pie__center [data-cell]");
-    if(centerSpan){
-      centerSpan.textContent = values[1];
-    }
-    
     // Debug
     for (let i = 1; i <= 10; i++) {
       console.log("--s" + i + ":", pie.style.getPropertyValue("--s" + i));
