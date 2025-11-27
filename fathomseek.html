@@ -2,22 +2,200 @@
 <html>
 <head>
   <meta charset="UTF-8" />
+  <script src="submit_form.js" defer></script>
+  <script>window.sheetCsvUrl = "https://docs.google.com/spreadsheets/d/1iAi73leePAUecgtVYqUneI64RleFUV68N0gRVPJ5kus/export?format=csv&gid=539268331";</script>
+  <script src="access_sheets.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Platypi&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <title>eliza</title>
+
+  <title>fathomseek</title>
 </head>
 <body>
-  <h1>ELIZA</h1>
-  <p>Company description.</p>
-  <a href="elizabio.html" class="button">NATURAL/BIOLOGICAL</a>
-    <p></p>
-  <a href="elizatech.html" class="button">TECHNOLOGICAL</a>
-    <p></p>
-  <a href="elizapol.html" class="button">SOCIOPOLITICAL</a>
-    <p></p>
-    <p></p>
-    <p></p>
+
+  <div class="swipe"></div>
+  <img id="logo" alt="logo" style="border-radius:50%;width:25vh;height:25vh;">
+  <div>
+  <h1 id="text_name" class="page-color"></h1>
+  <p><h2 style="color: #ffffff; font-style:italic;" id="text_ability"></h2></p>
+  <br>
+  </div>
+
+<!--CHART STUFF STARTS HERE-->
+<div id="chart" class="pie"
+     role="img"
+     style="
+       --size:180px;
+       --inner:48%;
+       /* colors (your palette, same order as your gradient) */
+       --c1:#b53410; --c2:#ec3ca2; --c3:#5794e3; --c4:#5544b1; --c5:#564750;
+       --c6:#5a9843; --c7:#b6d468; --c8:#bfbfbf; --c9:#fc8210; --c10:#ad3cc4;
+       /* cumulative stops (must be increasing, final should be 100%) */
+       --s1: 0%; --s2: 0%; --s3: 0%; --s4: 0%; --s5: 0%;
+       --s6: 0%; --s7: 0%; --s8: 0%; --s9: 0%; --s10: 100%;
+       ">
+  <span class="pie__center"><p class="page-color"><span data-cell="I8"></span>%</p></span>
+</div>
+<!--temp storage-->
+<div id="sheet-values" hidden>
+   <span data-cell="I29"></span>
+   <span data-cell="I2"></span>
+   <span data-cell="I5"></span>
+   <span data-cell="I8"></span>
+   <span data-cell="I11"></span>
+   <span data-cell="I14"></span>
+   <span data-cell="I17"></span>
+   <span data-cell="I20"></span>
+   <span data-cell="I23"></span>
+   <span data-cell="I26"></span>
+</div>
+<script>
+// Wait for both DOM and sheet data
+document.addEventListener("DOMContentLoaded", () => {
+  // Check if sheetReady exists, if not wait for it
+  const waitForSheet = () => {
+    if (window.sheetReady) {
+      return window.sheetReady;
+    }
+    // If not ready yet, wait a bit and check again
+    return new Promise(resolve => {
+      const checkInterval = setInterval(() => {
+        if (window.sheetReady) {
+          clearInterval(checkInterval);
+          window.sheetReady.then(resolve);
+        }
+      }, 50);
+    });
+  };
+  waitForSheet().then(() => {
+    const pie = document.getElementById("chart");
+    const spans = Array.from(document.querySelectorAll("#sheet-values [data-cell]"));
+    
+    // Parse and round values
+    const values = spans.map(s => {
+      const n = parseFloat(s.textContent);
+      const val = Number.isFinite(n) ? Math.round(n * 10) / 10 : 0;
+      s.textContent = val;
+      return val;
+    });
+    
+    console.log("Values:", values);
+    
+    // Compute cumulative stops
+    let cumulative = 0;
+    pie.style.setProperty("--s1", "0%");
+    values.forEach((v, i) => {
+      cumulative += v;
+      pie.style.setProperty("--s" + (i+1), cumulative + "%");
+    });
+    
+    pie.style.setProperty("--s10", "100%");
+    
+    const centerSpan = pie.querySelector(".pie__center [data-cell]");
+      if(centerSpan){
+      const n = parseFloat(centerSpan.textContent);
+      centerSpan.textContent = Number.isFinite(n) ? Math.round(n * 10) / 10 : '';
+    } 
+    
+    // Debug
+    for (let i = 1; i <= 10; i++) {
+      console.log("--s" + i + ":", pie.style.getPropertyValue("--s" + i));
+    }
+  });
+});
+</script>
+<!--CHART STUFF ENDS HERE-->
+
+<script>
+fetch('page_data.json')
+  .then(r => r.json())
+  .then(data => {
+    const pageData = data.fathomseek_page;
+    console.log('pageData', pageData); // debug
+
+    // set visual stuff (optional)
+    document.querySelectorAll('.page-color').forEach(el => el.style.color = pageData.color);
+    document.getElementById('logo').src = pageData.logo;
+    document.getElementById('text_name').textContent = pageData.text_name;
+    document.getElementById('text_ability').textContent = pageData.text_ability;
+    document.getElementById('text_percentage').textContent = pageData.text_percentage;
+    document.getElementById('text_description').textContent = pageData.text_description;
+
+    // BUTTON — use one id (bio_button) and set href + data-value
+    const bio = document.getElementById('bio_button');
+    if (bio) {
+      bio.href = pageData.bio_link;
+      bio.dataset.value = pageData.bio_value; // safer than setAttribute, and accessible via el.dataset.value
+      console.log('bio dataset.value =', bio.dataset.value); // debug
+    }
+
+    // same for tech
+    const tech = document.getElementById('tech_button');
+    if (tech) {
+      tech.href = pageData.tech_link;
+      tech.dataset.value = pageData.tech_value;
+    }
+    
+    // same for pol 
+    const pol = document.getElementById('pol_button');
+    if (pol) {
+      pol.href = pageData.pol_link;
+      pol.dataset.value = pageData.pol_value;
+    }
+
+  })
+  .catch(err => console.error('page_data.json load error', err));
+</script>
+
+
+    <br><p style="font-style:italic;" id="text_percentage"></p><br>
+    <p id="text_description"></p><br>
+
+    <script>window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
+    <a id="bio_button"
+    class="button"
+    style="color: #ffffff; background-color: #68a870;"
+    data-gform
+    data-entry="entry.1648822927"
+    data-delay="300"
+    data-status-id="status"
+    >
+    <img src="images/leaf_w.png" alt="leaf" style="float:left;width:64px;height:64px;">
+    NATURAL/BIOLOGICAL</a>
+    <p id="status"></p>
+
+    <script>window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
+    <a id="tech_button"
+    class="button"
+    style="color: #ffffff; background-color: #96d16f;""
+    data-gform
+    data-entry="entry.1648822927"
+    data-delay="300"
+    data-status-id="status"
+    >
+    <img src="images/wrench_w.png" alt="wrench" style="float:left;width:64px;height:64px;">
+    TECHNOLOGICAL</a>
+    <p id="status"></p>
+    
+    <script>window.myGFormDefaultFormId = '1Ir1v299hXOnCtmI24FXH5G0P5htitOFzcD1Jl0wdMA8';</script>
+    <a id="pol_button"
+    class="button"
+    style="color: #ffffff; background-color: #7b85b7;"
+    data-gform
+    data-entry="entry.1648822927"
+    data-delay="300"
+    data-status-id="status"
+    >
+    <img src="images/pfp_w.png" alt="pfp" style="float:left;width:64px;height:64px;">
+    SOCIOPOLITICAL</a>
+    <p id="status"></p>
+
+  <br>
+  <br>
+
   <a href="index.html" class="button">HOME</a>
+  <br>
+  <br>
+
 </body>
 </html>
