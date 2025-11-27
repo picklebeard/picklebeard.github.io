@@ -79,9 +79,10 @@ document.addEventListener("DOMContentLoaded", () => {
     pie2.style.setProperty("--s3", "100%");
     
     const centerSpan = pie2.querySelector(".pie2__center [data-cell]");
-    if(centerSpan){
-      centerSpan.textContent = values[0];
-    }
+      if(centerSpan){
+      const n = parseFloat(centerSpan.textContent);
+      centerSpan.textContent = Number.isFinite(n) ? Math.round(n * 10) / 10 : '';
+    } 
     
     // Debug
     for (let i = 1; i <= 3; i++) {
