@@ -248,7 +248,7 @@
   },
   "segoymorred_page": {
     "color": "#b6d468",
-    "logo": "images/segoymorred.png",
+    "logo": "images/segoy_morred.png",
     "text_name": "Segoy Morred",
     "text_ability": "DIPLOMAT",
     "text_percentage": "This is the percentage of realities lead by Segoy Morred.",
@@ -263,7 +263,7 @@
   "segoymorred_bio_page": {
     "color": "#b6d468",
     "end_color": "#68a870",
-    "logo": "images/segoymorred.png",
+    "logo": "images/segoy_morred.png",
     "text_name": "Segoy Morred",
     "text_ending_type": "BIOLOGICAL/NATURAL ENDING",
     "text_percentage": "This is how often this company has a BIO leaning. You've just contributed to this.",
@@ -272,7 +272,7 @@
   "segoymorred_tech_page": {
     "color": "#b6d468",
     "end_color": "#96d16f",
-    "logo": "images/segoymorred.png",
+    "logo": "images/segoy_morred.png",
     "text_name": "Segoy Morred",
     "text_ending_type": "TECHNOLOGICAL ENDING",
     "text_percentage": "This is how often this company has a TECH leaning. You've just contributed to this.",
@@ -281,8 +281,49 @@
   "segoymorred_pol_page": {
     "color": "#b6d468",
     "end_color": "#7b85b7",
-    "logo": "images/segoymorred.png",
+    "logo": "images/segoy_morred.png",
     "text_name": "Segoy Morred",
+    "text_ending_type": "SOCIOPOLITICAL ENDING",
+    "text_percentage": "This is how often this company has a sociopolitical leaning. You've just contributed to this.",
+    "text_ending": "ending"
+  },
+  "montiq_page": {
+    "color": "#bfbfbf",
+    "logo": "images/montiq.png",
+    "text_name": "MONTIQ",
+    "text_ability": "CYBERSECURE",
+    "text_percentage": "This is the percentage of realities where MONTIQ has outcompeted.",
+    "text_description": "description",
+    "bio_link": "montiqbio.html",
+    "tech_link": "montiqtech.html",
+    "pol_link": "montiqpol.html",
+    "bio_value": "montiqbio",
+    "tech_value": "montiqtech",
+    "pol_value": "montiqpol"
+  },
+  "montiq_bio_page": {
+    "color": "#bfbfbf",
+    "end_color": "#68a870",
+    "logo": "images/montiq.png",
+    "text_name": "MONTIQ",
+    "text_ending_type": "BIOLOGICAL/NATURAL ENDING",
+    "text_percentage": "This is how often this company has a BIO leaning. You've just contributed to this.",
+    "text_ending": "ending"
+  },
+  "montiq_tech_page": {
+    "color": "#bfbfbf",
+    "end_color": "#96d16f",
+    "logo": "images/montiq.png",
+    "text_name": "MONTIQ",
+    "text_ending_type": "TECHNOLOGICAL ENDING",
+    "text_percentage": "This is how often this company has a TECH leaning. You've just contributed to this.",
+    "text_ending": "ending"
+  },
+  "montiq_pol_page": {
+    "color": "#bfbfbf",
+    "end_color": "#7b85b7",
+    "logo": "images/montiq.png",
+    "text_name": "MONTIQ",
     "text_ending_type": "SOCIOPOLITICAL ENDING",
     "text_percentage": "This is how often this company has a sociopolitical leaning. You've just contributed to this.",
     "text_ending": "ending"
